@@ -1,4 +1,4 @@
-class Borrartipohospedajes < ActiveRecord::Migration
+class DropTipohospedajes < ActiveRecord::Migration
   def change
   	drop_table (:tipodehospedajes)
   end
