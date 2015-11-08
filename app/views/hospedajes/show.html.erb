@@ -1,0 +1,73 @@
+<div class="centrado">
+	<hr/>
+	<h1><CENTER> <%= @hospe.titulo %> </CENTER></h1>
+
+	<hr/>
+   
+ 	<h4> Dueño:  </h4>
+ 	<h5>  <%= @hospe.usuario.nombre + " " + @hospe.usuario.apellido %> </h5> 
+
+ 	<h4> Capacidad:  </h4>
+ 	<h5>  <%= @hospe.capacidad %> personas</h5>
+
+ 	<h4> Provincia:  </h4>
+ 	<h5>  <%= @hospe.provincia %> </h5>
+
+ 	<h4> Ciudad:  </h4>
+ 	<h5>  <%= @hospe.ciudad %> </h5>
+
+ 	<h4>  Caracteristicas:  </h4> 
+    <h5> <%= @hospe.descripcion %> </h5>
+
+ 	<h4> Valoracion del Hospedaje:  </h4>
+ 	<% if @total != -1 %>
+ 		<h5>  <%= @total %> puntos de 10    <%= link_to "Ver Puntajes", nil, class: 'btn btn-info btn-xs' %> </h5>
+ 	<% else %>
+		<h5>  Este hospedaje no posee puntajes </h5> 	
+ 	<% end %>	
+
+ 	<hr/>
+
+    <meta charset="UTF-8">
+		<script src="functions.js"></script>
+		<div class="slide">
+    	 	<figure>
+    	 		<% j = 0 %>
+         		<% @hospe.fotos.each do |foto| %>   
+          			<% i = 1 + j %>   <!-- controla que el each no se pasa del tamaño del arreglo-->
+          			<% if i <= 4 %>
+          				 <!-- VERIFICAR POR QUE TARDA -->
+          				<% while i <= 4 %>
+          					<img class="img<%=i%>" alt="alt img<%=i%>" src=<%= foto.link %> />
+          					<% i = i + @hospe.fotos.count %>
+          				<% end %>
+          				<% j = j + 1 %>
+					<% end %>
+				<% end %>
+			</figure>
+     	</div>
+	
+	
+     <hr/>
+
+	<!-- COMIENZA LA PARTE DE COMENTARIOS-->
+
+	<h3>  Comentarios:  </h3>
+	 	<% if @hospe.comentarios.count > 0 %>
+		 	<% @hospe.comentarios.each do |comentario| %>
+				<h5> <strong> <%= comentario.usuario.nombre %> </strong>  :  <%= comentario.texto  %>
+					<%= link_to "Responder", nil, class: 'btn btn-info btn-xs' %> </h5>
+				 <% comentario.respuestas.each do |respuesta| %> 
+					<div class="respuesta"> <h5> <strong> <%= respuesta.usuario.nomusuario %> </strong>  : <%= respuesta.texto  %> </h5> </div>  
+		 		<% end %>
+		 		<hr/>
+		 	<% end %>
+		
+		<% else %>
+			<h5>  Este hospedaje no posee comentarios </h5>
+		<% end %>
+	<br/>
+	<CENTER> <%= link_to "Solicitar Hospedaje", nil, class: 'btn btn-success btn-lg' %>
+	<%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %> </CENTER>
+	<br/>
+</div>

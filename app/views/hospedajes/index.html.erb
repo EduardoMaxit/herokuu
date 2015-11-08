@@ -1,0 +1,36 @@
+<div class="centrado">
+	<h2><CENTER>Hospedajes</CENTER></h2>
+	<table class="table">
+		<tr>
+			<th width="100"> Titulo </th>
+			<th width="100"> Descripcion </th>
+			<th width="100"> Ciudad </th>
+			<th width="100"> Tipo de Hospedaje </th>
+			<th width="100">  </th>
+		</tr>
+	</table>
+
+	<% @hospe.each do |hospedaje| %>	
+		<table class="table">
+			<tr>
+				<td width="100"> <%= hospedaje.titulo %> </td>
+				<td width="100"> <%= hospedaje.encabezado %> </td>
+				<td width="100"> <%= hospedaje.ciudad %> </td>
+				<td width="100"> <%= hospedaje.tipo.nombre %> </td>
+					
+				<% if usuario_signed_in? %> 	
+					<td width="100"> <%= link_to "Ver Detalles", hospedaje_path(hospedaje), class: 'btn btn-info btn-xs' %> </td>
+				<% else %>
+					<td width="100"></td>
+				<% end %>	
+			</tr>
+		</table>
+		<% if  hospedaje.usuario.espremium %>
+			<img class="slideIndex" src=<%= hospedaje.fotos.first.link %> />
+		<% else %>		
+		 	<img class="slideInd" src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xtf1/v/t1.0-9/12208452_1015580821795433_8228123211197963475_n.jpg?oh=41ef7b224ff9685835bfc56f8442aa38&oe=56F623FA&__gda__=1455207506_469b355130ec06d56979dcc23c2790df"  />
+		 	<br/> 
+		<% end %>	
+	<% end %>	
+	
+</div>

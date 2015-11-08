@@ -1,0 +1,21 @@
+<div class="centrado">
+<h2><CENTER>¿Desea crear un nuevo tipo de hospedaje?</CENTER></h2>
+  <div class="col-md-8 col-md-offset-2">
+      <%= form_for (@tipo) do |f| %>
+      <div class="form-group has-success has-feedback">
+          <%= f.label :nombre %>
+         <%= f.text_field :nombre, required: true, placeholder: 'Ingrese el nombre del tipo de hospedaje',class:"form-control" %>
+      </div>
+      <CENTER>
+        <%= f.submit "Aceptar", class: "btn btn-success btn-lg" %>
+        <%= link_to "Volver", tipos_path, class: 'btn btn-warning btn-lg' %> 
+      </CENTER>  
+         <br/>
+         <% if notice && notice== "Ya existe ese tipo, intente de nuevo" %>
+          <div class="alert alert-warning"> <p><%= notice %> </p> </div>
+         <% elsif notice %>
+            <div class="alert alert-success"> <p><%= notice %> </p> </div>  
+         <% end %>
+    <% end %>
+ </div>
+ </div>
