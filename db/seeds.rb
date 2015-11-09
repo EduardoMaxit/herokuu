@@ -21,5 +21,5 @@ Respuesta.find_or_create_by(texto: "ES verdad, las paredes un desastre ", coment
 Respuesta.find_or_create_by(texto: "solo tienen algunos manchones de humedad ", comentario_id: 1, usuario_id: 2)
 Respuesta.find_or_create_by(texto: "Por lo menos no se le llueve agua ", comentario_id: 1, usuario_id: 2)
 
-Tipo.find_or_create_by(tipo_id: 1, nombre: "Choza")
-Tipo.find_or_create_by(tipo_id:2, nombre: "Casa")
+Tipo.find_or_create_by(id: 1, nombre: "Choza")
+Tipo.find_or_create_by(id: 2, nombre: "Casa")
