@@ -23,3 +23,7 @@ Respuesta.find_or_create_by(texto: "Por lo menos no se le llueve agua ", comenta
 
 Tipo.find_or_create_by(id: 1, nombre: "Choza")
 Tipo.find_or_create_by(id: 2, nombre: "Casa")
+
+Foto.find_or_create_by(link: "http://k34.kn3.net/4ACAE8572.jpg", hospedaje_id: 1 )
+Foto.find_or_create_by(link: "http://media-cdn.tripadvisor.com/media/photo-o/01/d2/4e/46/casas.jpg", hospedaje_id: 2 )
+Foto.find_or_create_by(link: "http://ojodecasas.com/wp-content/uploads/2015/07/PR_FOTO_2220_quillay_v02.jpg", hospedaje_id: 2 )
