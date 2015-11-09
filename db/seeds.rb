@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Hospedaje.find_or_create_by(titulo: "Gran Mansion", encabezado: "Situado en pleno centro de  Merlo (San luis) con gran parque", descripcion: "7 habitaciones con cable y baño cada una, gran cocina, comedor y un quincho de 300 metros cuadradros", provincia: "San Luis" , ciudad: "merlo",  capacidad: 17 , usuario_id: 1 , tipo_id: 1 )
-Hospedaje.find_or_create_by(titulo: "casa con pileta", encabezado: "Situado a las orillas del rio salamanca", descripcion: "2 habitaciones con cable, cocina comedor y un parque de 25 metros cuadrados", provincia: "Catamarca" , ciudad: "san salvador",  capacidad: 5 , usuario_id: 2 , tipo_id: 2 )
+Hospedaje.find_or_create_by(titulo: "Gran Mansion", encabezado: "Situado en pleno centro de  Merlo (San luis) con gran parque", descripcion: "7 habitaciones con cable y baño cada una, gran cocina, comedor y un quincho de 300 metros cuadradros", provincia: "San Luis" , ciudad: "merlo",  capacidad: "17" , usuario_id: 1 , tipo_id: 1 )
+Hospedaje.find_or_create_by(titulo: "casa con pileta", encabezado: "Situado a las orillas del rio salamanca", descripcion: "2 habitaciones con cable, cocina comedor y un parque de 25 metros cuadrados", provincia: "Catamarca" , ciudad: "san salvador",  capacidad: "5" , usuario_id: 2 , tipo_id: 2 )
 
 
 Puntaje.find_or_create_by(puntos: 8, hospedaje_id: 1 )
