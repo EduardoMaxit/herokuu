@@ -25,18 +25,18 @@
   <% end -%>
 
   <div class="campologin">
-    <center><%= f.submit "Log in",class: "btn btn-success btn-lg" %>
+    <center><%= f.submit "Iniciar sesion",class: "btn btn-success btn-lg" %>
     <%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %> </CENTER>
  </div>
 
 <% end %>
 
 <%- flash.each do |name, msg| -%>
-  <div class="alert alert-danger">
-    <% if msg.is_a?(String) %>
-      Usuario y/o contraseña invalidos
+<% if msg=="Email o contraseña inválidos." %> 
+  <div class="alert alert-danger">     
+      <%= msg %>
+      </div>
       <%end%>
-    </div>
   <%- end -%>  
   <div class="campologin">
     <%= render "usuarios/shared/links" %>

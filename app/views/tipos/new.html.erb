@@ -13,7 +13,7 @@
          <br/>
          <% if notice && notice== "Ya existe ese tipo, intente de nuevo" %>
           <div class="alert alert-warning"> <p><%= notice %> </p> </div>
-         <% elsif notice %>
+         <% elsif notice && notice== "Creacion con exito" %>
             <div class="alert alert-success"> <p><%= notice %> </p> </div>  
          <% end %>
     <% end %>
