@@ -9,10 +9,8 @@
 Puntaje.find_or_create_by(puntos: 8, hospedaje_id: 1 )
 Puntaje.find_or_create_by(puntos: 5, hospedaje_id: 1 )
 
-
 Comentario.find_or_create_by(texto: "esta desmejorada", hospedaje_id: 1, usuario_id: 2)
 Comentario.find_or_create_by(texto: "Muy buena la casa", hospedaje_id: 1, usuario_id: 2)
-
 
 Respuesta.find_or_create_by(texto: "ES verdad, las paredes un desastre ", comentario_id: 1, usuario_id: 1)
 Respuesta.find_or_create_by(texto: "solo tienen algunos manchones de humedad ", comentario_id: 1, usuario_id: 2)
