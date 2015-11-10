@@ -16,8 +16,7 @@
 	<strong><%= current_usuario.nomusuario %> </strong> 
  	<!--<%= link_to 'Editar Perfil', edit_usuario_registration_path, :class => 'navbar-link' %> | -->
  	<%= link_to "Cerrar sesion",destroy_usuario_session_path, method: :delete, :class => 'navbar-link', class: 'btn btn-primary btn-xs'  %>
-<% else %>
-	<% if usuario_session_path %>
+ <% elsif !current_page?('/usuarios/sign_in') && !current_page?('/usuarios/sign_up') %>
 		<%= link_to "Registrarse", new_usuario_registration_path, :class => 'navbar-link', class: 'btn btn-primary btn-xs'  %> 
   		<%= link_to "Iniciar Sesion", new_usuario_session_path, :class => 'navbar-link', class: 'btn btn-primary btn-xs'  %>
   	<% end %>

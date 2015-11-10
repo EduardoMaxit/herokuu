@@ -13,4 +13,11 @@
   </div>
 <% end %>
 
+<%- flash.each do |name, msg| -%>
+  <div class="alert alert-danger">     
+      <%= msg %>
+      </div>
+  <%- end -%>
+
+    
 <%= render "usuarios/shared/links" %>

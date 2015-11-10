@@ -13,15 +13,21 @@ class TiposController < ApplicationController
       
   end
 
-  def index
-    @tipo=Tipo.all
+ def index
+     if (usuario_signed_in? && current_usuario.esadmin)  
+       @tipo=Tipo.all
+    else
+      redirect_to hospedajes_path
+    end
   end
 
   def new
-    @tipo=Tipo.new
-
+    if (usuario_signed_in? && current_usuario.esadmin)
+      @tipo=Tipo.new
+    else
+      redirect_to hospedajes_path
+    end
   end
-
   def create 
     @tipo=Tipo.create(params.require(:tipo).permit(:nombre))
     redirect_to new_tipo_path, notice: "Creacion con exito"
