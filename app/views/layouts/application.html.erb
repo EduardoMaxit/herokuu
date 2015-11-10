@@ -19,7 +19,6 @@
  <% elsif !current_page?('/usuarios/sign_in') && !current_page?('/usuarios/sign_up') %>
 		<%= link_to "Registrarse", new_usuario_registration_path, :class => 'navbar-link', class: 'btn btn-primary btn-xs'  %> 
   		<%= link_to "Iniciar Sesion", new_usuario_session_path, :class => 'navbar-link', class: 'btn btn-primary btn-xs'  %>
-  	<% end %>
 <% end %> 
 </div>
 
