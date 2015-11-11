@@ -7,14 +7,6 @@
 <center><h2>Cambiar contraseña</h2></center>
 
 
-<% resource.errors.each do |atributo, mensaje| %>
-      <%if(mensaje!="can't be blank") && (mensaje!="is invalid") then %>
-          <div class="alert alert-danger">
-            <%= mensaje %>
-          </div>
-      <%end%>
-<% end %>
-
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -38,6 +30,16 @@
     <center><%= f.submit "Cambiar contraseña", class: "btn btn-success btn-lg" %>
     <%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %></center>
   </div>
+
+
+<% resource.errors.each do |atributo, mensaje| %>
+      <%if(mensaje!="can't be blank") && (mensaje!="is invalid") then %>
+          <div class="alert alert-danger">
+            <%= mensaje %>
+          </div>
+      <%end%>
+<% end %>
+
 <% end %>
 
 </div>
