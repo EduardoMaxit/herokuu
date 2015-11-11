@@ -16,7 +16,7 @@
 	<h5> <%= radio_button_tag :tarjeta, 'Visa'  %> Visa </h5>
 
 	<br />
-	<CENTER><%= number_field_tag :numero ,nil, :placeholder => 'Ingrese el numero de su tarjeta', required: true ,class:"form-control"%><br /></CENTER>
+	<CENTER><%= number_field_tag :numero ,nil, :placeholder => 'Ingrese el numero de su tarjeta', required: true ,class:"form-control", maxlength: 5%><br /></CENTER>
 
 	<br />
 	<CENTER> <%= submit_tag "Realizar Pago", class: "btn btn-success btn-lg" %>
