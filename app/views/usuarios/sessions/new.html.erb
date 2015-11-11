@@ -33,12 +33,17 @@
 <% end %>
 
 <%- flash.each do |name, msg| -%>
-<% if msg=="Email o contraseña inválidos." || msg=="Recibiras un e-mail con instrucciones para acceder a tu cuenta" %> 
-  <div class="alert alert-danger">     
-      <%= msg %>
-      </div>
-      <%end%>
-  <%- end -%>  
+  <% if msg=="Email o contraseña inválidos." %> 
+    <div class="alert alert-danger">     
+        <%= msg %>
+    </div>
+  <% elsif msg=="Recibiras un e-mail con instrucciones para acceder a tu cuenta"%>
+    <div class="alert alert-success">     
+        <%= msg %>
+    </div>
+  <%end%>
+<%- end -%> 
+ 
   <div class="campologin">
     <%= render "usuarios/shared/links" %>
   </div>
