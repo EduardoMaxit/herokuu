@@ -12,7 +12,7 @@ port: 587,
 authentication: "plain",
 enable_starttls_auto: true,
 user_name: "eduardomaxit5@gmail.com",
-password: "JRRtalken"
+password: "JRRtalken123"
 }
   # Settings specified here will take precedence over those in config/application.rb.
 
