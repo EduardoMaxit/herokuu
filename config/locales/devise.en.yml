@@ -7,7 +7,7 @@ en:
         usuario:
           attributes:
             password:
-              too_short: "La contraseña es muy corto (8 digitos como minimo)"
+              too_short: "La contraseña es muy corta (8 digitos como minimo)"
             tel_num:
               too_short: "El numero de telefono es muy corto (6 digitos como minimo)"
             sexo:
@@ -20,6 +20,7 @@ en:
             email:
               taken: "El e-mail ya esta siendo utilizado!"
               invalid: "El e-mail es invalido"
+              not_found: "Email no encontrado"
             nomusuario:
               taken: "El nombre de usuario ya esta siendo utilizado!"
             tel_caract:
@@ -52,7 +53,7 @@ en:
       signed_in: ''
       signed_out: ''
     passwords:
-      send_instructions: 'Recibirás un email con instrucciones para reiniciar tu contraseña en unos minutos.'
+      send_instructions: "Recibiras un e-mail con instrucciones para acceder a tu cuenta"
       updated: 'Tu contraseña fue cambiada correctamente. Has iniciado sesión.'
       updated_not_active: 'Tu contraseña fue cambiada correctamente.'
       send_paranoid_instructions: "Si tu email existe en el sistema, recibirás instrucciones para recuperar tu contraseña en él"

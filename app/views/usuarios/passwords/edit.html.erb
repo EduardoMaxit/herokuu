@@ -1,28 +1,46 @@
-<h2>Change your password</h2>
+<div class="contenedorlogin">
+<div class="center-block">
+
+
+  <div class="form-group has-success has-feedback">
+
+<center><h2>Cambiar contraseña</h2></center>
+
+
+<% resource.errors.each do |atributo, mensaje| %>
+      <%if(mensaje!="can't be blank") && (mensaje!="is invalid") then %>
+          <div class="alert alert-danger">
+            <%= mensaje %>
+          </div>
+      <%end%>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-
-  
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
-    <%= f.label :password, "New password" %><br />
+    <%= f.label :Contraseña %><br />
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <em>(<%= @minimum_password_length %> caracteres como minimo)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+    <%= f.password_field :password, class:'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+   <div class="campologin">
+    <%= f.label :"Confirmacion de contraseña" %><br />
+    <%= f.password_field :password_confirmation, class:'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+
+  <div class= "campologin">
+    <center><%= f.submit "Cambiar contraseña", class: "btn btn-success btn-lg" %>
+    <%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %></center>
   </div>
 <% end %>
 
-<%= render "usuarios/shared/links" %>
+</div>
+</div>
+</div>
+
