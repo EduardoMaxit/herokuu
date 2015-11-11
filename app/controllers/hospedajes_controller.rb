@@ -4,7 +4,9 @@ def index
 end
 
 def solCuenta
-
+	#if (!usuario_signed_in? or current_usuario.espremium)
+	#	redirect_to hospedajes_path
+	#end
 end
 
 def show
@@ -17,22 +19,22 @@ def show
     	if @hospe.puntajes.count > 0
 			@hospe.puntajes.each do |puntaje|   
 				tot= tot + puntaje.puntos
-				i = i + 1
-				@total= tot / i
+				i = i + 1	
 			end	#saco el promedio de todos los puntajes
+			@total= tot / i
 		end	
 end
-def validar
-	if ((params[ :numero ] % 7) < "5")
-			redirect_to hospedajes_solCuenta_path, notice: "Numero de tarjeta invalida"
-	else 
 
-			idActual=current_usuario.id
-			usuarioActual=Usuario.find(idActual)
-			usuarioActual.espremium="true"
-			usuarioActual.save
-			
-			redirect_to hospedajes_solCuenta_path, notice: "Usted es ahora usuario premium. Felicitaciones"
+def validar  
+	if ((params[ :numero ] % 7) < "5" )
+		redirect_to hospedajes_solCuenta_path, notice: "Numero de tarjeta invalida"
+	else
+		idActual=current_usuario.id
+		usuarioActual=Usuario.find(idActual)
+		usuarioActual.espremium="true"
+		usuarioActual.save
+		redirect_to hospedajes_solCuenta_path, notice: "Usted es ahora usuario premium. Felicitaciones"
 	end
 end
+
 end

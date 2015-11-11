@@ -23,7 +23,7 @@ Comentario.find_or_create_by(texto: "A cuantos kilomretros se encuentra de la pl
 Respuesta.find_or_create_by(texto: "Exactamente a 600 metros ", comentario_id: 1, usuario_id: 1)
 
 Comentario.find_or_create_by(texto: "Tiene garage? para cuantos autos?", hospedaje_id: 1, usuario_id: 2)
-Respuesta.find_or_create_by(texto: "Si, para 7/8 depende del tamaño ", comentario_id: 1, usuario_id: 1)
+Respuesta.find_or_create_by(texto: "Si, para 7/8 depende del tamaño ", comentario_id: 2, usuario_id: 1)
 Respuesta.find_or_create_by(texto: "Bueno, gracias por la informacion", comentario_id: 1, usuario_id: 2)
 
 puts "hospedaje 2"
