@@ -11,8 +11,8 @@ address: "smtp.gmail.com",
 port: 587,
 authentication: "plain",
 enable_starttls_auto: true,
-user_name: ENV["eduardomaxit5@gmail.com"],
-password: ENV["JRRtalken"]
+user_name: "eduardomaxit5@gmail.com",
+password: "JRRtalken"
 }
   # Settings specified here will take precedence over those in config/application.rb.
 
