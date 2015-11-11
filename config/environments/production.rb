@@ -4,17 +4,17 @@ Rails.application.configure do
 config.action_mailer.default_url_options = { :host => 'https://whispering-atoll-1202.herokuapp.com' }
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = true
+config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default :charset => "utf-8"
 config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: "eduardomaxit5@gmail.com",
-      password: "JRRtalken"
-
-  }
+address: "smtp.gmail.com",
+port: 587,
+domain: ENV["http://gmail.com"],
+authentication: "plain",
+enable_starttls_auto: true,
+user_name: ENV["eduardomaxit5@gmail.com"],
+password: ENV["JRRtalken"]
+}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
