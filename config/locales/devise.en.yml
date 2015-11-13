@@ -13,16 +13,16 @@ en:
             sexo:
               inclusion: "Por favor, indique su sexo"
             fechanac:
-              invalid_date:  "Ingrese su fecha de nacimiento!"
+              invalid_date:  "Ingrese su fecha de nacimiento"
               before: "Debes ser mayor de 18 años para utilizar el servicio Couchinn"
             password_confirmation:
-              confirmation: "La Contraseña no coincide con su confirmacion!"
+              confirmation: "La Contraseña no coincide con su confirmacion"
             email:
-              taken: "El e-mail ya esta siendo utilizado!"
+              taken: "El e-mail ya esta siendo utilizado"
               invalid: "El e-mail es invalido"
               not_found: "Email no encontrado"
             nomusuario:
-              taken: "El nombre de usuario ya esta siendo utilizado!"
+              taken: "El nombre de usuario ya esta siendo utilizado"
             tel_caract:
               presence: ""
 

@@ -18,7 +18,7 @@ class Usuario < ActiveRecord::Base
 
   validates :nomusuario, uniqueness: true
   validates :sexo, :inclusion => {:in => [true, false]}
-  validates_length_of :tel_num, :minimum => 6
+  #validates_length_of :tel_num, :minimum => 6
 
 
 end

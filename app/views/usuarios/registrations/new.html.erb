@@ -5,6 +5,7 @@
   <div class="has-success">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>    
+<h2><CENTER>Formulario de Registro</CENTER></h2>
 
 <% resource.errors.each do |atributo, mensaje| %>
       <%if(mensaje!="can't be blank") && (mensaje!="is invalid") then %>
@@ -22,77 +23,76 @@
          <% end %>
 </div>
 
+ <div class="alert alert-info">Todos los campos son obligatorios</div>
 
 
      <div class= "camporegistro">
       <%= f.label :Nombre %>
-      <%= f.text_field :nombre,class:'form-control' %>
+      <%= f.text_field :nombre,pattern:"[A-Za-z]{0,20}",title:"El nombre solo puede contener letras y como maximo 20 caracteres",class:'form-control' %>
       </div>
 
      
   <div class= "camporegistro">
       <%= f.label :Apellido %>
-      <%= f.text_field :apellido,class:'form-control'%>
+      <%= f.text_field :apellido,pattern:"[A-Za-z]{0,20}",title:"El apellido solo puede contener letras y como maximo 20 caracteres",class:'form-control'%>
 
   </div>
 
 
- <div class= "camporegistro">
+
+  <div class= "camporegistro">
        <%= f.label :DNI %>
-      <%= f.text_field :dni,class:'form-control' %>
+      <%= f.number_field :dni,min:"0",class:'form-control' %>
   </div>
-
 
 
 
    <div class= "camporegistro">
      <%= f.label :"Nombre de usuario" %>
      <%= f.text_field :nomusuario,class:'form-control' %>
-</div>
+    </div>
 
 
    <div class= "camporegistro">
      <%= f.label :Contraseña %>
      <%= f.password_field :password,class:'form-control' %>
-</div>
+    </div>
 
 
-      <div class= "camporegistro">
+    <div class= "camporegistro">
       <%= f.label :"Confirmación de Contraseña" %>
       <%= f.password_field :password_confirmation,class:'form-control' %>
     </div>
 
     <div class= "camporegistro"> 
       <%= f.label :email %>
-      <%= f.email_field :email,class:'form-control' %>
+      <%= f.email_field :email,title:"Formato de e-mail invalido",class:'form-control'%>
     </div>
+
 
 
 <div class="camporegistro_telefono_izq">
       <%= f.label :"Caracteristica- " %>
-     <%= f.text_field :tel_caract,class:'form-control' %>
+     <%= f.number_field :tel_caract,max:"99999999",min:"0",title:"La caracteristica puede contener como maximo 8 digitos", class:'form-control' %>
 </div>
+
 <div class="camporegistro_telefono_der">
 <%= f.label :"Telefono" %>
-     <%= f.text_field :tel_num,class:'form-control' %>
+     <%= f.number_field :tel_num,max:"999999999999999",min:"0", title:"El numero puede contener como maximo 15 digitos", class:'form-control' %>
 </div>
 
 
-
-  <div class= "camporegistro">
+ <div class= "camporegistro">
   <%= f.label :"Fecha de Nacimiento" %>
-  <%= f.date_field :fechanac,class:'form-control' %>
-  
+  <%= f.date_field :fechanac,title:"Por favor, complete correctamente su fecha de nacimiento",class:'form-control' %> 
 </div>
+
 
    <div class= "camporegistro">
       <center><%= f.label :Sexo %>
-      <br/>  
-      <%= f.radio_button :sexo, true  %> <%= f.label :sexo, "Masculino" %>
+      <%= f.radio_button :sexo, true, checked: true  %> <%= f.label :sexo, "Masculino" %>
       <%= f.radio_button :sexo, false %> <%= f.label :sexo, "Femenino" %></center>
   </div>
-
-
 
 
   <div class= "camporegistro">
@@ -119,4 +119,3 @@
 </div>
 
 </div>
-

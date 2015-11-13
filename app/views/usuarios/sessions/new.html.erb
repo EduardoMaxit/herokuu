@@ -5,10 +5,11 @@
   <div class="form-group has-success has-feedback">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<h2><CENTER>Inicio de sesion</CENTER></h2>
 
   <div class="campologin">
     <%= f.label :email %><br />
-    <%= f.email_field :email,class:'form-control' %>
+    <%= f.email_field :email,title:"Formato de e-mail invalido",class:'form-control' %>
   </div>
 
  
