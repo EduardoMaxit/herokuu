@@ -1,4 +1,4 @@
-<div class="contenedorhospedaje">
+<div class="contenedoredicion">
   <div class="has-success">
 
   <center><h2>Editar Hospedaje</h2></center>
@@ -31,7 +31,7 @@
 
       <%= form_for (@h) do |f|  %>
         
-        <div class="campohospedaje">
+        <div class="campoedicion">
           <%= f.label :titulo %><br />
           <%= f.text_field :titulo,required:true,title:"Campo obligatorio",value: @h.titulo,class:'form-control'%>
         </div>
