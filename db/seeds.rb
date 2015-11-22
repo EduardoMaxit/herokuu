@@ -54,7 +54,7 @@ Foto.find_or_create_by(link: "http://imganuncios.mitula.net/nueva_a_estrenar_en_
 
 puts "hospedaje 4"
 
-Hospedaje.find_or_create_by(titulo: "Pieza para disfrutar de la ciudad mas austral del mundo", encabezado: "Pieza amplia con baño privado", descripcion: "Se compartira la casa con sus dueños, dicha casa se encuentra a 5 km del centro invernal Cerro Castor", provincia: "Tierra del Fuego" , ciudad: "Ushuaia",  capacidad: "2", usuario_id: 2 , tipo_id: 4 , puntajePromedio: 8 , ocupado: false , fechainic: '25/08/2018', fechafin: '25/08/2019' )
+Hospedaje.find_or_create_by(titulo: "Pieza para disfrutar de la ciudad mas austral del mundo", encabezado: "Pieza amplia con baño privado", descripcion: "Se compartira la casa con sus dueños, dicha casa se encuentra a 5 km del centro invernal Cerro Castor", provincia: "Tierra del Fuego" , ciudad: "Ushuaia",  capacidad: "2", usuario_id: 2 , tipo_id: 4 , puntajePromedio: 8 , ocupado: false , fechainic: '2018/08/25', fechafin: '2019/08/25' )
 
 Foto.find_or_create_by(link: "https://media-cdn.tripadvisor.com/media/photo-s/01/50/65/4c/la-habitacion-amplia.jpg", hospedaje_id: 4 )
 Foto.find_or_create_by(link: "http://www.comodoro.gov.ar/efemerides/wp-content/uploads/2012/08/ushuaia1.gif", hospedaje_id: 4 )
