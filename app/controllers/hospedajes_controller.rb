@@ -14,14 +14,15 @@ def create
 	params[:hospedaje][:usuario_id]=current_usuario.id
 	@h=Hospedaje.new(params.require(:hospedaje).permit(:puntajePromedio,:fechainic,:fechafin,:tipo_id,:usuario_id,:titulo,:encabezado,:descripcion,:provincia,:capacidad,:ciudad))
     if @h.save
-     redirect_to hospedajes_new_path, notice: "Hospedaje creado con exito"
+     ultimohosp=Hospedaje.where(usuario_id: current_usuario.id).last.id
+     redirect_to fotos_new_path(:ide=> ultimohosp), notice: "Hospedaje creado con exito. Inserte una foto"
     else
      render :new
  end
 end
 
 def edit
-	@hospedaje=Hospedaje.find(params[:id])
+	@h=Hospedaje.find(params[:id])
 	@fotos=Foto.where(hospedaje_id: params[:id])
 
 end
