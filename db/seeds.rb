@@ -47,7 +47,7 @@ Respuesta.find_or_create_by(texto: "Depende de la fecha en la que quieras venir,
 
 puts "hospedaje 3"
 
-Hospedaje.find_or_create_by(titulo: "Departemento para disfrutar con la familia", encabezado: "Departamento en pleno centro", descripcion: "Es un departamento al cual no le falta nada, muy comodo para una familia de 4/5 que tenga ganas de disfrutar de los espectaculos que brinda la ciudad de Buenaos Aires  ", provincia: "Buenos Aires" , ciudad: "Ciudad Autonoma de Bsas",  capacidad: "5" , usuario_id: 1 , tipo_id: 3 , puntajePromedio: 6 , ocupado: false , fechainic: '08/25/2016', fechafin: '08/25/2017')
+Hospedaje.find_or_create_by(titulo: "Departemento para disfrutar con la familia", encabezado: "Departamento en pleno centro", descripcion: "Es un departamento al cual no le falta nada, muy comodo para una familia de 4/5 que tenga ganas de disfrutar de los espectaculos que brinda la ciudad de Buenaos Aires  ", provincia: "Buenos Aires" , ciudad: "Ciudad Autonoma de Bsas",  capacidad: "5" , usuario_id: 1 , tipo_id: 3 , puntajePromedio: 6 , ocupado: false ,fechainic: '08/03/2016', fechafin: '08/25/2017')
 
 Foto.find_or_create_by(link: "http://imgar.zp-static.com/675968ff-4a55-490e-bf59-b17a674f6c60?dimension=340x255", hospedaje_id: 3 )
 Foto.find_or_create_by(link: "http://imganuncios.mitula.net/nueva_a_estrenar_en_palermo_queen_en_alquiler_de_temporada_98130643007707872.jpg", hospedaje_id: 3 )
