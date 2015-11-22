@@ -1,0 +1,43 @@
+<div class="centrado">
+	<h2><CENTER>Mis Hospedajes</CENTER></h2>
+	<table class="table">
+		<tr>
+			<th width="200"> Titulo </th>
+			<th width="200"> Tipo de Hospedaje </th>
+			<th width="200"> </th>
+		</tr>
+	</table>
+	<% if @hospe.count > 0 %>
+		<% @hospe.each do |hospedaje| %>	
+			<table class="table">
+				<tr>
+					<td width="200"> <%= hospedaje.titulo %> </td>
+					<td width="200"> <%= hospedaje.tipo.nombre %> </td>
+					<td width="200"> <%= link_to "Ver Detalles", hospedaje_path(hospedaje), class: 'btn btn-info btn-xs' %>
+					 <%= link_to "Editar",hospedajes_edit_path(:controller => "editar",:id =>hospedaje.id, :idusuario =>current_usuario.id), class: 'btn btn-info btn-xs' %> 
+					 <%= link_to "Eliminar",hospedaje, method: :delete, class: 'btn btn-danger btn-xs' %> </td>
+				</tr>
+			</table>
+			<%if(hospedaje.fotos.first!=nil)%>
+			<img class="slideIndex" src=<%= hospedaje.fotos.first.link %> />
+			<%else%>
+			 <%= image_tag "sinfotoarial40.png", class:"slideIndex" %>
+			<%end%>
+			<br/>	
+		<% end %>	
+	<% else %>
+		<h3><Center>No hay hospedajes disponibles</center></h3>
+	<% end %>
+	
+	<br/>
+	<center><%= link_to "Crear Hospedaje",hospedajes_new_path, class: 'btn btn-success btn-lg' %> <!-- corregir -->
+	<%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %></center>
+	<br/>
+
+	<% if notice && notice=="Eliminacion con exito" %>
+		<div class="alert alert-success"> <p><%= notice %> </p> </div> 
+	<% end %>
+	<% if notice && notice=="El hospedaje esta ocupado, no se puede editar" %>
+		<div class="alert alert-danger"> <p><%= notice %> </p> </div> 
+	<% end %>
+</div>

@@ -1,9 +1,37 @@
 Rails.application.routes.draw do
   
 
-  get '/hospedajes/solCuenta'
-  get '/hospedajes/validar'
+  get 'fotos/new'
+
+  get 'fotos/create'
+
+
+  get '/fotos/edit'
+
+  get '/fotos/update'
+
+  get '/fotos/destroy'
+
+  get '/cuentas/cuentaPremium'
+  get '/cuentas/validar'
   
+  get 'hospedajes/misHospedajes'
+  get '/hospedajes/puntuarHospedaje'
+  get '/hospedajes/validarPuntaje'
+  get '/hospedajes/busquedaAvanzada'
+  get '/hospedajes/buscar'
+
+
+  get '/hospedajes/new'
+
+  get '/hospedajes/edit'
+  
+
+  get '/solicituds/aceptarSolicitud'
+
+  
+
+
   root 'hospedajes#index'
 
 
@@ -13,7 +41,7 @@ devise_for :usuarios, :controllers => {:registrations => "usuario/registrations"
 get 'usuario' => 'usuario#new'
 
 
-  resources :tipos, :hospedajes
+  resources :tipos, :hospedajes, :solicituds, :fotos
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

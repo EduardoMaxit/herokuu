@@ -15,6 +15,7 @@
  */
 
 .logo {
+	margin-top:50px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -22,13 +23,13 @@
 
 .footer{
 	position:absolute;
-		top: 645px;
+		top: 643px; 
 		left: 20px;
 }
 
 .menuSesion{
 	margin-top: 5px;
 	 margin-left: 1150px;
-
-
 }
+
+

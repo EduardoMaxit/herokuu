@@ -3,14 +3,13 @@ class TiposController < ApplicationController
 
   def validar
     if Tipo.where(nombre: params[:tipo][:nombre]).count >  0 && !(Tipo.where(nombre: params[:tipo][:nombre]).first.bajalogica)
-     redirect_to new_tipo_path, notice: "Ya existe ese tipo, intente de nuevo"     
+      redirect_to new_tipo_path, notice: "Ya existe ese tipo, intente de nuevo"     
     elsif Tipo.where(nombre: params[:tipo][:nombre]).count >  0 && (Tipo.where(nombre: params[:tipo][:nombre]).first.bajalogica)
-     @tipo=Tipo.where(nombre: params[:tipo][:nombre]).first
-     @tipo.bajalogica="false"
-     @tipo.save
-     redirect_to new_tipo_path, notice: "Creacion con exito"
-    end
-      
+      @tipo=Tipo.where(nombre: params[:tipo][:nombre]).first
+      @tipo.bajalogica="false"
+      @tipo.save
+      redirect_to new_tipo_path, notice: "Creacion con exito"
+    end     
   end
 
  def index
@@ -28,6 +27,7 @@ class TiposController < ApplicationController
       redirect_to hospedajes_path
     end
   end
+
   def create 
     @tipo=Tipo.create(params.require(:tipo).permit(:nombre))
     redirect_to new_tipo_path, notice: "Creacion con exito"
@@ -52,9 +52,12 @@ class TiposController < ApplicationController
     if @tipo.hospedajes.count > 0
       @tipo.bajalogica="true"
       @tipo.save
+      redirect_to tipos_path, notice: "Se ha deshabilitado el tipo de hospedaje"
     else
       @tipo.destroy
+      redirect_to tipos_path, notice: "Eliminacion con exito"
     end
-    redirect_to tipos_path, notice: "Eliminacion con exito"
+    
   end
+
 end

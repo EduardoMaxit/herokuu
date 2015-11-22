@@ -1,0 +1,41 @@
+<div class="centrado">
+	<h2><CENTER>Solicitudes</CENTER></h2>
+	<table class="table">
+		<tr>
+			<th width="100"> Solicitante </th>
+			<th width="100"> Hospedaje </th>
+			<th width="100"> Fecha de inicio </th>
+			<th width="100"> Fecha de fin </th>
+			<th width="70"> </th>
+		</tr>
+	</table>
+	<% total=0 %>
+	<% if @hospe.count > 0 %> 
+		<% @hospe.each do |hospedaje| %>
+			<% hospedaje.solicituds.where(aceptada: false).each do |solicitud| %>	
+				<table class="table">
+					<tr>
+						<td width="100"> <%= solicitud.usuario.nombre + " " + solicitud.usuario.apellido %> </td>
+						<td width="100"> <%= solicitud.hospedaje.titulo %> </td>
+						<td width="100"> <%= solicitud.fechainic %> </td>
+						<td width="100"> <%= solicitud.fechafin %> </td>
+						<td width="70"> <%= link_to "Aceptar", solicituds_aceptarSolicitud_path(:id => solicitud.id), class: 'btn btn-success btn-xs' %> </td>
+					</tr>
+					<% total = 1 %>
+				</table>
+			<% end %>	
+		<% end %>
+	<% end %>
+	<% if total == 0 %>
+		<h3><Center>No hay solicitudes</center></h3>
+	<% end %>
+
+	<CENTER><%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %></CENTER>
+
+	<br/>
+	<% if notice && notice== "Solicitud aceptada" %>
+  		<div class="alert alert-success"> <p><%= notice %> </p> </div>
+  	<% elsif notice && notice== "No hay fecha disponible" %>
+		<div class="alert alert-warning"> <p><%= notice %> </p> </div>
+  	<% end %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107203752) do
+ActiveRecord::Schema.define(version: 20151120154424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +38,21 @@ ActiveRecord::Schema.define(version: 20151107203752) do
     t.string   "provincia"
     t.string   "ciudad"
     t.string   "capacidad"
-    t.boolean  "ocupado"
+    t.boolean  "ocupado",         default: false
     t.date     "fechainic"
     t.date     "fechafin"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "tipo_id"
     t.integer  "usuario_id"
+    t.integer  "puntajePromedio"
+  end
+
+  create_table "notificacions", force: true do |t|
+    t.string   "descripcion"
+    t.integer  "usuario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "puntajes", force: true do |t|
@@ -62,6 +70,16 @@ ActiveRecord::Schema.define(version: 20151107203752) do
     t.datetime "updated_at"
     t.integer  "usuario_id"
     t.integer  "comentario_id"
+  end
+
+  create_table "solicituds", force: true do |t|
+    t.integer  "usuario_id"
+    t.integer  "hospedaje_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "fechainic"
+    t.date     "fechafin"
+    t.boolean  "aceptada",     default: false
   end
 
   create_table "tipos", force: true do |t|
@@ -96,6 +114,7 @@ ActiveRecord::Schema.define(version: 20151107203752) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "sexo"
+    t.string   "foto"
   end
 
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree

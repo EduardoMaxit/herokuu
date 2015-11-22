@@ -1,6 +1,6 @@
 class Usuario::RegistrationsController < Devise::RegistrationsController
  before_filter :configure_sign_up_params, only: [:create]
-# before_filter :configure_account_update_params, only: [:update]
+ #before_filter :configure_account_update_params, only: [:update]
 def configure_sign_up_params
 
   if sign_up_params[:nombre].length==0 || sign_up_params[:apellido].length==0 ||sign_up_params[:dni].length==0 ||  sign_up_params[:nomusuario].length==0 || sign_up_params[:email].length==0  || sign_up_params[:password].length==0 || sign_up_params[:password_confirmation].length==0 || sign_up_params[:tel_caract].length==0 || sign_up_params[:tel_num].length==0
@@ -8,7 +8,10 @@ def configure_sign_up_params
     flash[:warning] = "Uno o mas campos vacios"
   end
 
- end
+end
+
+
+
 
   # GET /resource/sign_up
   # def new

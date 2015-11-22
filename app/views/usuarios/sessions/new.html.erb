@@ -9,14 +9,14 @@
 
   <div class="campologin">
     <%= f.label :email %><br />
-    <%= f.email_field :email,title:"Formato de e-mail invalido",class:'form-control' %>
+    <%= f.email_field :email,required:true,title:"Formato de e-mail invalido",class:'form-control' %>
   </div>
 
  
 
   <div class="campologin">
     <%= f.label :contraseña %><br />
-    <%= f.password_field :password,class:'form-control' %>
+    <%= f.password_field :password,required:true,title:"Campo obligatorio",class:'form-control' %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -34,9 +34,9 @@
 <% end %>
 
 <%- flash.each do |name, msg| -%>
-  <% if msg=="Email o contraseña inválidos." %> 
+  <% if msg=="Email o contraseña inválidos." || msg=="Invalid email or password." %> 
     <div class="alert alert-danger">     
-        <%= msg %>
+        Email o contraseña inválidos.
     </div>
   <% elsif msg=="Recibiras un e-mail con instrucciones para acceder a tu cuenta"%>
     <div class="alert alert-success">     

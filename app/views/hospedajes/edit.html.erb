@@ -1,0 +1,113 @@
+<div class="contenedorhospedaje">
+  <div class="has-success">
+
+  <center><h2>Editar Hospedaje</h2></center>
+
+       <div class="campohospedaje">
+
+      <center>Desde aqui puede editar su hospedaje y agregar nuevas fotos </center>
+
+      </div>
+
+      <%if notice=="Hospedaje actualizado con exito" then%>
+       <div class="campohospedaje">
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
+       </div>
+      <%elsif notice=="Existe una foto igual asignada al hospedaje" || notice=="Cada hospedaje debe tener una foto como minimo"%>
+        <div class="campohospedaje">
+         <div class="alert alert-warning">
+          <%= notice %>
+         </div>
+        </div>
+      <%elsif notice=="La fecha de fin no puede ser anterior a la fecha de inicio" %>
+        <div class="campohospedaje">
+         <div class="alert alert-warning">
+          <%= notice %>
+         </div>
+        </div>
+      <%end%>
+
+      <%= form_for (@h) do |f|  %>
+        
+        <div class="campohospedaje">
+          <%= f.label :titulo %><br />
+          <%= f.text_field :titulo,required:true,title:"Campo obligatorio",value: @h.titulo,class:'form-control'%>
+        </div>
+
+
+        <div class="campohospedaje">
+          <%= f.label :encabezado %><br />
+          <%= f.text_field :encabezado,required:true,title:"Campo obligatorio",value: @h.encabezado,class:'form-control'%>
+        </div>
+
+
+        <div class="campohospedaje">
+          <%= f.label :descripcion %><br />
+          <%= f.text_area :descripcion,required:true,title:"Campo obligatorio",value: @h.descripcion,class:'form-control', rows:3%>
+        </div>
+
+        <div class="campohospedaje">
+          <%= f.label :provincia %><br />
+          <%= f.text_field :provincia,required:true,pattern:"[A-Za-z]{0,20}",required:true,title:"Campo invalido",value: @h.provincia,class:'form-control'%>
+        </div>
+
+        <div class="campohospedaje">
+          <%= f.label :ciudad %><br />
+          <%= f.text_field :ciudad,required:true,pattern:"[A-Za-z]{0,20}",required:true,title:"Campo invalido",value: @h.ciudad,class:'form-control'%>
+        </div>
+
+        <div class="campohospedaje">
+          <%= f.label :capacidad %><br />
+          <%= f.number_field :capacidad,required:true,title:"Campo obligatorio",value: @h.capacidad,max:"99999999",min:"1",class:'form-control'%>
+        </div>
+
+        <div class= "campohospedaje">
+          <%= f.label :"Fecha de inicio" %>
+          <%= f.date_field :fechainic,required:true,title:"Por favor, corrobore la fecha de inicio",min:Date.today,class:'form-control' %> 
+         </div>
+
+        <div class= "campohospedaje">
+          <%= f.label :"Fecha de fin" %>
+          <%= f.date_field :fechafin,required:true,value: @h.fechafin,title:"Por favor, corrobore la fecha de fin",min:Date.today,class:'form-control' %> 
+         </div>
+
+        <div class="campohospedaje">
+        <div class="btnvolver">
+           <center><%= f.submit "Actualizar datos",class: "btn btn-success btn-lg"  %>
+           <%= link_to "Insertar Foto", fotos_new_path(:ide =>@h.id), class:"btn btn-success btn-lg"%></center>
+        </div>
+        </div>
+
+   <% end %>
+   <div class="campohospedaje">
+    <center><%= link_to "Volver", hospedajes_path, class: 'btn btn-warning' %>
+    <input type="button", class="btn btn-success", value="Editar Fotos" 
+     onClick="document.getElementById('oculto').style.display='block'"> 
+    </center>
+    </div>
+    <div id="oculto" style="display: none"> 
+        
+        <% if @fotos.count > 0 %>
+            <center><h3>Fotos de Hospedaje</h3></center>
+            <% @fotos.each do |foto| %>
+              <center><img src="<%=foto.link%>" WIDTH=300 HEIGHT=200 class="img-rounded"></center>
+              <%= form_for foto, :url => fotos_update_path(:ide => foto.id, :idh => @h.id) do |f| %>
+                <div class="campohospedaje">
+                  <%= f.label :link %><br />
+                  <%= f.text_field :link,required:true,title:"Campo obligatorio",value: foto.link,class:'form-control'%>
+                  <%#f.hidden_field :hospedaje_id,value: @hospedaje.id%>
+                </div>
+                <div class="campohospedaje">
+                  <center><%= f.submit "Editar",  class:"btn btn-success"  %>
+                  <%= link_to "Eliminar", fotos_destroy_path(:id => foto.id, :idh => @h.id), class: 'btn btn-warning' %></center>
+                </div>
+              <%end%>
+            <%end%>
+      <%end%>
+  </div>
+</div>
+</div>
+
+

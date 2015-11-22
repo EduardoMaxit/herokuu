@@ -1,7 +1,8 @@
-<div class="centrado4">
-	<center><h2> Listado de Tipos de Hospedaje </h2></center>
-	<h4> Nombre</h4>
-	<table class="table table-hover">
+<div class="centrado">
+	<center><h2>Tipos de Hospedaje</h2></center>
+	<br/>
+	<%= label_tag "Nombre" %>
+	<table class="table">
 		<% @tipo.each do |tipo| %>
 			<% if !(tipo.bajalogica) %>
 				<tr>
@@ -20,6 +21,10 @@
 	<%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %></center>
 	<br/>
 	<% if notice && notice== "Modificacion con exito"  %>
-  		 <div class="alert alert-success"> <p><%= notice %> </p> </div>	
+  		<div class="alert alert-success"> <p><%= notice %> </p> </div>
+  	<% elsif notice && notice== "Eliminacion con exito"	%>
+  		<div class="alert alert-success"> <p><%= notice %> </p> </div>
+  	<% elsif notice && notice== "Se ha deshabilitado el tipo de hospedaje"	%>
+  		<div class="alert alert-warning"> <p><%= notice %> </p> </div>
     <% end %>
 </div>

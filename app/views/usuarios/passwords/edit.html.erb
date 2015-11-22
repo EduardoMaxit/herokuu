@@ -17,12 +17,12 @@
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> caracteres como minimo)</em><br />
     <% end %>
-    <%= f.password_field :password, class:'form-control' %>
+    <%= f.password_field :password,required:true,title:"Campo obligatorio", class:'form-control' %>
   </div>
 
    <div class="campologin">
     <%= f.label :"Confirmacion de contraseña" %><br />
-    <%= f.password_field :password_confirmation, class:'form-control' %>
+    <%= f.password_field :password_confirmation,required:true,title:"Campo obligatorio", class:'form-control' %>
   </div>
 
 
@@ -32,16 +32,19 @@
   </div>
 
 
-<% resource.errors.each do |atributo, mensaje| %>
-      <%if(mensaje!="can't be blank") && (mensaje!="is invalid") then %>
+ <% resource.errors.each do |atributo, mensaje| %>
+      <%if(mensaje=="can't be blank") ||  (mensaje=="is invalid") then %>
           <div class="alert alert-danger">
-            <%= mensaje %>
+            La contraseña difiere de su confirmacion
           </div>
-      <%end%>
-<% end %>
+      <%else%>
+          <div class="alert alert-danger">
+            <%=mensaje%>
+          </div> 
+      <% end %>
 
-<% end %>
-
+ <% end %>
+<%end%>
 </div>
 </div>
 </div>

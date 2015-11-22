@@ -1,5 +1,51 @@
 <header>
-    <div class="container">
+	<header>
+	<nav class="navbar-fixed-top navbar-default" role="navigation">
+  
+  
+    <ul class="nav navbar-nav">
+    	<% if usuario_signed_in? %>
+
+    		<!--Busqueda-->
+    		<form class="navbar-form navbar-left" role="search">        		
+              <%= form_tag '/hospedajes', :method => "get" do  %>
+                    <%= text_field_tag :palabra ,nil,:placeholder => 'Busqueda Rapida', required: true ,class:"form-control"%>
+                    <%= submit_tag "Buscar", class: "btn btn-default" %>
+                    <%= link_to "Busqueda Avanzada", hospedajes_busquedaAvanzada_path, class: "btn btn-default" %>
+                   
+              <% end %>
+              <li></li>    		
+        </form>
+
+    		<!-- Elementros de la izquierda -->
+    	
+      		<li><%= link_to "Mis Hospedajes", hospedajes_misHospedajes_path(:id => current_usuario.id) %></li>
+      		<li><a href="/solicituds">Solicitudes</a></li>
+      		<% if !current_usuario.espremium %>
+      			<li><a href="/cuentas/cuentaPremium">Cuenta Premium</a></li>
+     		<% end %>
+      		<% if current_usuario.esadmin %>
+     			<li><a href="/tipos">Tipos</a></li> 
+     		<% end %>
+     	<% end %>
+    </ul>
+
+    <!-- Elementos de la derecha -->
+    <ul class="nav navbar-nav navbar-right">
+      <% if usuario_signed_in? %>
+      	<li><a href="/usuarios/edit"><strong><%= current_usuario.nomusuario %></strong></a></li>
+      	<li><%= link_to "Cerrar sesion",destroy_usuario_session_path, method: :delete %></li>
+      <% elsif !current_page?('/usuarios/sign_in') && !current_page?('/usuarios/sign_up') %>
+     	<li><a href="/usuarios/sign_up">Registrarse</a></li>
+      	<li><a href="/usuarios/sign_in">Iniciar Sesion</a></li>
+      <% end %>
+    </ul>
+
+  
+
+</nav>
+
+  <div class="container">
 		<%= image_tag "couchinn.png", title: "Logo", class: "logo" %>
 	</div>
 </header>
