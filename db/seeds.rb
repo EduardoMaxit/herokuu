@@ -8,7 +8,7 @@
 
 
 puts "Hospedaje 1"
-Hospedaje.find_or_create_by(titulo: "Gran Mansion", encabezado: "Situada en pleno centro de Merlo", descripcion: "Cuenta 7 habitaciones completamente amobladas con cable y baño cada una, gran cocina, comedor y un quincho de 300 metros cuadradros. Se encuentra ne pleno centro por lo que la movilidad no es un problema", provincia: "San Luis" , ciudad: "Merlo",  capacidad: "17" , usuario_id: 1 , tipo_id: 1 , puntajePromedio: 8 , ocupado: false , fechainic: '25/08/2016', fechafin: '25/08/2017')
+Hospedaje.find_or_create_by(titulo: "Gran Mansion", encabezado: "Situada en pleno centro de Merlo", descripcion: "Cuenta 7 habitaciones completamente amobladas con cable y baño cada una, gran cocina, comedor y un quincho de 300 metros cuadradros. Se encuentra ne pleno centro por lo que la movilidad no es un problema", provincia: "San Luis" , ciudad: "Merlo",  capacidad: "17" , usuario_id: 1 , tipo_id: 1 , puntajePromedio: 8 , ocupado: false , fechainic: '2016/08/25', fechafin: '2017/08/25')
 
 Foto.find_or_create_by(link: "https://i.ytimg.com/vi/x7UflKOhhe4/maxresdefault.jpg", hospedaje_id: 1 )
 Foto.find_or_create_by(link: "http://ciudad.cdncmd.com/sites/default/files/styles/ciu_nota_slider_contenido_hd/public/files_drupal_6/2013/10/02/CasaMessiLuisdeGarrido-4.jpg?itok=JO1yeb99", hospedaje_id: 1 )
@@ -28,7 +28,7 @@ Respuesta.find_or_create_by(texto: "Bueno, gracias por la informacion", comentar
 
 puts "hospedaje 2"
 
-Hospedaje.find_or_create_by(titulo: "Cabaña los kaukenes", encabezado: "Cabaña para descansar", descripcion: "Cabaña situada a 4kms  del centro, no hay señal de tv , de radio ni movil. Consta de 2 habitaciones, cocina-comedor y baño con jacuzzi", provincia: "Entre Rios" , ciudad: "Concordia",  capacidad: "2" , usuario_id: 2 , tipo_id: 2  , puntajePromedio: 3 , ocupado: false , fechainic: '03/08/2016', fechafin: '25/08/2016')
+Hospedaje.find_or_create_by(titulo: "Cabaña los kaukenes", encabezado: "Cabaña para descansar", descripcion: "Cabaña situada a 4kms  del centro, no hay señal de tv , de radio ni movil. Consta de 2 habitaciones, cocina-comedor y baño con jacuzzi", provincia: "Entre Rios" , ciudad: "Concordia",  capacidad: "2" , usuario_id: 2 , tipo_id: 2  , puntajePromedio: 3 , ocupado: false , fechainic: '2016/08/03', fechafin: '2016/08/25')
 
 Foto.find_or_create_by(link: "http://www.patagonia.com.ar/media/usuarios/fotos/normal_Rio_Grande_B.jpg", hospedaje_id: 2 )
 Foto.find_or_create_by(link: "http://www.tigretienetodo.com.ar/cabanas%20colibri%206%20FOTOS.jpg", hospedaje_id: 2 )
@@ -47,7 +47,7 @@ Respuesta.find_or_create_by(texto: "Depende de la fecha en la que quieras venir,
 
 puts "hospedaje 3"
 
-Hospedaje.find_or_create_by(titulo: "Departemento para disfrutar con la familia", encabezado: "Departamento en pleno centro", descripcion: "Es un departamento al cual no le falta nada, muy comodo para una familia de 4/5 que tenga ganas de disfrutar de los espectaculos que brinda la ciudad de Buenaos Aires  ", provincia: "Buenos Aires" , ciudad: "Ciudad Autonoma de Bsas",  capacidad: "5" , usuario_id: 1 , tipo_id: 3 , puntajePromedio: 6 , ocupado: false , fechainic: '25/08/2016', fechafin: '25/08/2017')
+Hospedaje.find_or_create_by(titulo: "Departemento para disfrutar con la familia", encabezado: "Departamento en pleno centro", descripcion: "Es un departamento al cual no le falta nada, muy comodo para una familia de 4/5 que tenga ganas de disfrutar de los espectaculos que brinda la ciudad de Buenaos Aires  ", provincia: "Buenos Aires" , ciudad: "Ciudad Autonoma de Bsas",  capacidad: "5" , usuario_id: 1 , tipo_id: 3 , puntajePromedio: 6 , ocupado: false , fechainic: '2016/08/25', fechafin: '2017/08/25')
 
 Foto.find_or_create_by(link: "http://imgar.zp-static.com/675968ff-4a55-490e-bf59-b17a674f6c60?dimension=340x255", hospedaje_id: 3 )
 Foto.find_or_create_by(link: "http://imganuncios.mitula.net/nueva_a_estrenar_en_palermo_queen_en_alquiler_de_temporada_98130643007707872.jpg", hospedaje_id: 3 )
