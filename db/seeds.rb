@@ -28,7 +28,7 @@ Respuesta.find_or_create_by(texto: "Bueno, gracias por la informacion", comentar
 
 puts "hospedaje 2"
 
-Hospedaje.find_or_create_by(titulo: "Cabaña los kaukenes", encabezado: "Cabaña para descansar", descripcion: "Cabaña situada a 4kms  del centro, no hay señal de tv , de radio ni movil. Consta de 2 habitaciones, cocina-comedor y baño con jacuzzi", provincia: "Entre Rios" , ciudad: "Concordia",  capacidad: "2" , usuario_id: 2 , tipo_id: 2  , puntajePromedio: 3 , ocupado: false , fechainic: '08/03/2016', fechafin: '08/25/2016')
+Hospedaje.find_or_create_by(titulo: "Cabaña los kaukenes", encabezado: "Cabaña para descansar", descripcion: "Cabaña situada a 4kms  del centro, no hay señal de tv , de radio ni movil. Consta de 2 habitaciones, cocina-comedor y baño con jacuzzi", provincia: "Entre Rios" , ciudad: "Concordia",  capacidad: "2" , usuario_id: 2 , tipo_id: 2  , puntajePromedio: 3 , ocupado: false , fechainic: '08/03/2016', fechafin: '08/25/2017')
 
 Foto.find_or_create_by(link: "http://www.patagonia.com.ar/media/usuarios/fotos/normal_Rio_Grande_B.jpg", hospedaje_id: 2 )
 Foto.find_or_create_by(link: "http://www.tigretienetodo.com.ar/cabanas%20colibri%206%20FOTOS.jpg", hospedaje_id: 2 )
