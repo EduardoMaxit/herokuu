@@ -2,17 +2,17 @@
 
 
 <%if notice=="Hospedaje creado con exito. Inserte una foto" then%>
-  <div class="contenedoredicion">
+  <div class="contenedorfoto">
      <div class="alert alert-success">
         <%= notice %>
       </div>
    </div>
 <%end%>
 
-<div class="contenedoredicion">
+<div class="contenedorfoto">
   <div class="has-success">
       <%= form_for @foto do |f| %>
-  	    <div class="campoedicion">
+  	    <div class="campofoto">
           <%= f.label :link %><br />
           <%= f.text_field :link,required:true,title:"Campo obligatorio",value: @foto.link,class:'form-control'%>
           <%= f.hidden_field :hospedaje_id, value: @id%>

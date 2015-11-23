@@ -29,8 +29,10 @@
  
  	<% else %>
 		<h5>  Este hospedaje no posee puntajes </h5> 	
- 	<% end %>	
+ 	<% end %>
+ 	<% if @hospe.puntajes.where(usuario_id: current_usuario.id).count == 0 && @hospe.usuario_id != current_usuario.id %> 		
  		<%= link_to "Puntuar Hospedaje", hospedajes_puntuarHospedaje_path(:id => @hospe.id), class: 'btn btn-success btn-xs' %>
+ 	<% end %>	
 
  	<hr/>
 

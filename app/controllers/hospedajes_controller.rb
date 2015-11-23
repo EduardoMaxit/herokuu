@@ -181,31 +181,22 @@ end
 def validarPuntaje 
     
     @hospedaje=Hospedaje.find(params[:hospedaje_id]) 
-    
-    
-    if @hospedaje.puntajes.where(usuario_id: current_usuario.id).count > 0	
-    	
-			@nuevoPuntaje=Puntaje.new
-	    	@nuevoPuntaje.puntos=params[:puntos]
-	    	@nuevoPuntaje.comentario=params[:comentario]
-	    	@nuevoPuntaje.usuario_id=current_usuario.id
-	    	@nuevoPuntaje.hospedaje_id=params[:hospedaje_id]
-	    	@nuevoPuntaje.save
+    @nuevoPuntaje=Puntaje.new
+	@nuevoPuntaje.puntos=params[:puntos]
+	@nuevoPuntaje.comentario=params[:comentario]
+	@nuevoPuntaje.usuario_id=current_usuario.id
+	@nuevoPuntaje.hospedaje_id=params[:hospedaje_id]
+	@nuevoPuntaje.save
 
-			tot=0
-    		if @hospedaje.puntajes.count > 0
-				@hospedaje.puntajes.each do |puntaje|   
-					tot= tot + puntaje.puntos				
-				end	
-				@hospedaje.puntajePromedio= tot / @hospedaje.puntajes.count
-				@hospedaje.save
-				redirect_to root_path
-			end
+	tot=0
+    @hospedaje.puntajes.each do |puntaje|   
+		tot= tot + puntaje.puntos				
+	end	
+	@hospedaje.puntajePromedio= tot / @hospedaje.puntajes.count
+	@hospedaje.save
+	redirect_to hospedaje_path(@hospedaje)
+	
 
-    else
-     	flash.now[:notice]= 'Usted y ha puntuado este Hospedaje'
-		render :busquedaAvanzada
-    end
 
 end
 

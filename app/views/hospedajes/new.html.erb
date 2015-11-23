@@ -1,5 +1,5 @@
 
-<div class="contenedoredicion">
+<div class="contenedorhospedaje">
   <div class="has-success">
   <h2><CENTER>Nuevo Hospedaje</CENTER></h2>
 
@@ -7,69 +7,69 @@
 
 
         <% if notice=="Hospedaje creado con exito" then%>
-         <div class="campoedicion">
+         <div class="campohospedaje">
            <div class="alert alert-success">
              <%= notice %>
            </div>
           </div>
         <%elsif @h.errors[:expiration_date].first=="La fecha de fin no puede ser anterior a la fecha de inicio"%>
-          <div class="campoedicion">
+          <div class="campohospedaje">
            <div class="alert alert-warning">
             <%=@h.errors[:expiration_date].first%>
            </div>
           </div>
           <%if flash[:message]%>
-           <dic class="campoedicion">
+           <dic class="campohospedaje">
             <div class="alert alert-warning">
             <%=flash[:message]%>
             </div>
            </div>
            <%end%>
         <%end%>
-        <div class="campoedicion">
+        <div class="campohospedaje">
           <%= f.label :titulo %><br />
           <%= f.text_field :titulo,value: @h.titulo,required:true,value:@h.titulo,title:"Campo obligatorio",class:'form-control'%>
         </div>
 
 
-        <div class="campoedicion">
+        <div class="campohospedaje">
           <%= f.label :encabezado %><br />
           <%= f.text_field :encabezado,required:true,title:"Campo obligatorio",value: @h.encabezado,class:'form-control'%>
         </div>
 
 
-        <div class="campoedicion">
+        <div class="campohospedaje">
           <%= f.label :descripcion %><br />
           <%= f.text_area :descripcion,required:true,title:"Campo obligatorio",value: @h.descripcion,class:'form-control', rows:3%>
         </div>
 
-        <div class="campoedicion">
+        <div class="campohospedaje">
           <%= f.label :provincia %><br />
           <%= f.text_field :provincia,pattern:"[A-Za-z]{0,20}",required:true,title:"Campo invalido",value: @h.provincia,class:'form-control'%>
         </div>
 
-        <div class="campoedicion">
+        <div class="campohospedaje">
           <%= f.label :ciudad %><br />
           <%= f.text_field :ciudad,pattern:"[A-Za-z]{0,20}",required:true,title:"Campo invalido",value: @h.ciudad,class:'form-control'%>
         </div>
 
-        <div class="campoedicion">
+        <div class="campohospedaje">
           <%= f.label :capacidad %><br />
           <%= f.number_field :capacidad,required:true,title:"Campo obligatorio",value: @h.capacidad,max:"99999999",min:"1",class:'form-control'%>
         </div>
 
 
-        <div class= "campoedicion">
+        <div class= "campohospedaje">
           <%= f.label :"Fecha de inicio" %>
           <%= f.date_field :fechainic,required:true,title:"Por favor, corrobore la fecha de inicio",min:Date.today,class:'form-control' %> 
          </div>
 
-        <div class= "campoedicion">
+        <div class= "campohospedaje">
           <%= f.label :"Fecha de fin" %>
           <%= f.date_field :fechafin,required:true,title:"Por favor, corrobore la fecha de fin",min:Date.today,class:'form-control' %> 
          </div>
 
-        <div class="campoedicion">
+        <div class="campohospedaje">
           <%= f.label :Tipo_id, 'Tipo de hospedaje'%>
           <%= collection_select(:hospedaje, :tipo_id, Tipo.all, :id, :nombre, {}, { class: 'form-control'}) %>
 
@@ -78,7 +78,7 @@
         <%=f.hidden_field :puntajePromedio,value: -1%>
 
 
-        <dic class="campoedicion">
+        <dic class="campohospedaje">
          <div class="btnvolver">
            <%= f.submit "Crear hospedaje",class: "btn btn-success btn-lg"  %>
             <div class="btn">
