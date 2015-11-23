@@ -42,6 +42,8 @@ def aceptarSolicitud  #falta enviar mail
 				solicitud.destroy
 			end
 		end
+		SolicitudMailer.solicitante_email(current_usuario, sol.hospedaje.usuario)
+		SolicitudMailer.propietario_email(current_usuario, sol.hospedaje.usuario)
 		redirect_to solicituds_path, notice: "Solicitud aceptada"
 	end
 end
