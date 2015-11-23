@@ -33,7 +33,7 @@ def update
 	if @h.save
 	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Cambios realizados con exito"
 	else 
-	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Cambios realizados con exito"
+	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "La fecha de fin no puede ser anterior a la fecha de inicio"
 	end
 end
 
