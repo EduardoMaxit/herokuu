@@ -34,7 +34,8 @@ def update
 	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Cambios realizados con exito"
 	else 
 	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Cambios realizados con exito"
-	endend
+	end
+end
 
 
 
