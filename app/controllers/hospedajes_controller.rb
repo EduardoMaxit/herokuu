@@ -30,7 +30,7 @@ end
 def update
 	@hospedaje=Hospedaje.find(params[:id])
 	@hospedaje.update_attributes(params.require(:hospedaje).permit(:fechainic, :fechafin, :titulo,:encabezado,:descripcion,:provincia,:capacidad,:ciudad))
-	redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Cambios realizados con exito"
+	redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Hospedaje actualizado con exito"
 end
 
 
