@@ -28,10 +28,13 @@ def edit
 end
 
 def update
-	@hospedaje=Hospedaje.find(params[:id])
-	@hospedaje.update_attributes(params.require(:hospedaje).permit(:fechainic, :fechafin, :titulo,:encabezado,:descripcion,:provincia,:capacidad,:ciudad))
-	redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Hospedaje actualizado con exito"
-end
+	@h=Hospedaje.find(params[:id])
+	@h.update_attributes(params.require(:hospedaje).permit(:fechainic, :fechafin, :titulo,:encabezado,:descripcion,:provincia,:capacidad,:ciudad))
+	if @h.save
+	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Cambios realizados con exito"
+	else 
+	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Cambios realizados con exito"
+	endend
 
 
 
