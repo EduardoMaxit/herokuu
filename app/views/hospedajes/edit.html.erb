@@ -24,7 +24,7 @@
       <%elsif notice=="La fecha de fin no puede ser anterior a la fecha de inicio" %>
         <div class="campohospedaje">
          <div class="alert alert-warning">
-           <%= notice %>
+          <%= notice %>
          </div>
         </div>
       <%end%>
@@ -50,12 +50,12 @@
 
         <div class="campohospedaje">
           <%= f.label :provincia %><br />
-          <%= f.text_field :provincia,required:true,required:true,title:"Campo invalido",value: @h.provincia,class:'form-control'%>
+          <%= f.text_field :provincia,required:true,pattern:"[A-Za-z]{0,20}",required:true,title:"Campo invalido",value: @h.provincia,class:'form-control'%>
         </div>
 
         <div class="campohospedaje">
           <%= f.label :ciudad %><br />
-          <%= f.text_field :ciudad,required:true,required:true,title:"Campo invalido",value: @h.ciudad,class:'form-control'%>
+          <%= f.text_field :ciudad,required:true,pattern:"[A-Za-z]{0,20}",required:true,title:"Campo invalido",value: @h.ciudad,class:'form-control'%>
         </div>
 
         <div class="campohospedaje">
@@ -82,9 +82,10 @@
 
    <% end %>
    <div class="campohospedaje">
-    <center><%= link_to "Volver", hospedajes_path, class: 'btn btn-warning' %>
+    <center>
     <input type="button", class="btn btn-success", value="Editar Fotos" 
      onClick="document.getElementById('oculto').style.display='block'"> 
+     <%= link_to "Volver", hospedajes_path, class: 'btn btn-warning' %>
     </center>
     </div>
     <div id="oculto" style="display: none"> 

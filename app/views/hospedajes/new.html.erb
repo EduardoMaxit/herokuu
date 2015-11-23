@@ -5,7 +5,6 @@
 
       <%= form_for (@h) do |f|  %>
 
-
         <% if notice=="Hospedaje creado con exito" then%>
          <div class="campohospedaje">
            <div class="alert alert-success">
@@ -45,12 +44,12 @@
 
         <div class="campohospedaje">
           <%= f.label :provincia %><br />
-          <%= f.text_field :provincia,required:true,title:"Campo invalido",value: @h.provincia,class:'form-control'%>
+          <%= f.text_field :provincia,pattern:"[A-Za-z]{0,20}",required:true,title:"Campo invalido",value: @h.provincia,class:'form-control'%>
         </div>
 
         <div class="campohospedaje">
           <%= f.label :ciudad %><br />
-          <%= f.text_field :ciudad,required:true,title:"Campo invalido",value: @h.ciudad,class:'form-control'%>
+          <%= f.text_field :ciudad,pattern:"[A-Za-z]{0,20}",required:true,title:"Campo invalido",value: @h.ciudad,class:'form-control'%>
         </div>
 
         <div class="campohospedaje">
@@ -76,24 +75,11 @@
         </div>
 
         <%=f.hidden_field :puntajePromedio,value: -1%>
+         
+        <center><%= f.submit "Crear hospedaje",class: "btn btn-success btn-lg"  %>
+        <%= link_to "Volver", :back, class: 'btn btn-warning btn-lg' %></center>
+        <br/>
+      <% end %>
 
-
-        <dic class="campohospedaje">
-         <div class="btnvolver">
-           <%= f.submit "Crear hospedaje",class: "btn btn-success btn-lg"  %>
-            <div class="btn">
-             <center><%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %></center>
-            </div>
-         </div>
-        </div>
-
-
-
-
-
-
-        
-<% end %>
-
-</div>
+  </div>
 </div>

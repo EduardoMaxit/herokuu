@@ -1,6 +1,6 @@
 
 
-<h3><CENTER>Informacion de Usuario</CENTER></h3>
+<h2><CENTER>Informacion de Usuario</CENTER></h2>
 
 
 <div class="infousuario">
@@ -27,7 +27,7 @@
      <%= image_tag "sinimagen.png",WIDTH:200, HEIGHT:200, class:"img-rounded" %>
   <%end%>
 <%else%>
-<%= image_tag "sinimagen.png",WIDTH:200, HEIGHT:200, class:"img-rounded" %>
+  <%= image_tag "sinimagen.png",WIDTH:200, HEIGHT:200, class:"img-rounded" %>
 <%end%>
 </div>
 
@@ -126,22 +126,20 @@
 
 
 
-        <div class="btnvolver">
+        <CENTER>
            <%= f.submit "Actualizar datos",class: "btn btn-success btn-lg"  %>
-        </div>
-
+        </CENTER>
+        <br/>
   
 
   <% end %>
 
 
 
-  <div class="btn">
-    <a><%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Está seguro?" }, method: :delete,class: "btn btn-success btn-lg"  %></a>
-  </div>
-  <div class="btn">
-    <%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %>
-    </div>
+  <CENTER>
+    <%= link_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Está seguro?" }, method: :delete,class: "btn btn-success btn-lg"  %>
+    <%= link_to "Volver", :back, class: 'btn btn-warning btn-lg' %>
+    </CENTER>
 
 </div>
 </div>
