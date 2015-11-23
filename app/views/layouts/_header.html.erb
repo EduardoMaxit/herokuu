@@ -11,7 +11,6 @@
                 		
       <% if usuario_signed_in? %>
     		<!-- Elementros de la izquierda -->
-          <li><%= link_to "Inicio", hospedajes_path %></li>
       		<li><%= link_to "Mis Hospedajes", hospedajes_misHospedajes_path(:id => current_usuario.id) %></li>
       		<li><a href="/solicituds">Solicitudes</a></li>
       		<% if !current_usuario.espremium %>
@@ -27,7 +26,7 @@
     <ul class="nav navbar-nav navbar-right">
       <% if usuario_signed_in? %>
       	<li><a href="/usuarios/edit"><strong><%= current_usuario.nomusuario %></strong></a></li>
-        <li><a href=<% hospedajes_path %>>Inicio</a></li>
+        <li><%= link_to "Inicio", hospedajes_path %></li>
       	<li><%= link_to "Cerrar sesion",destroy_usuario_session_path, method: :delete %></li>
       <% elsif !current_page?('/usuarios/sign_in') && !current_page?('/usuarios/sign_up') %>
      	  <li><a href="/usuarios/sign_up">Registrarse</a></li>
