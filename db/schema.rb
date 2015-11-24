@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120154424) do
+ActiveRecord::Schema.define(version: 20151124200800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,13 +48,6 @@ ActiveRecord::Schema.define(version: 20151120154424) do
     t.integer  "puntajePromedio"
   end
 
-  create_table "notificacions", force: true do |t|
-    t.string   "descripcion"
-    t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "puntajes", force: true do |t|
     t.integer  "puntos"
     t.string   "comentario"
@@ -80,6 +73,7 @@ ActiveRecord::Schema.define(version: 20151120154424) do
     t.date     "fechainic"
     t.date     "fechafin"
     t.boolean  "aceptada",     default: false
+    t.boolean  "eliminar",     default: false
   end
 
   create_table "tipos", force: true do |t|

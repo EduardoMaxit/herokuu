@@ -23,11 +23,13 @@
 						<% if solicitud.aceptada %>
 							<td width="100"> SI </td>
 							<td width="70"> </td>
-						<% else %>
+						<% elsif !solicitud.eliminar%>
 							<td width="100"> NO </td>
 							<td width="70"> <%= link_to "Aceptar", solicituds_aceptarSolicitud_path(:id => solicitud.id), class: 'btn btn-success btn-xs' %> </td>
-						<% end %>
-						
+						<% else %>
+							<td width="100"> NO </td>
+							<td width="70"> <%= link_to "Eliminar", solicitud, method: :delete, class: 'btn btn-danger btn-xs' %> </td>	
+						<% end %>			
 					</tr>
 					<% total = 1 %>
 				</table>
@@ -45,5 +47,7 @@
   		<div class="alert alert-success"> <p><%= notice %> </p> </div>
   	<% elsif notice && notice== "No hay fecha disponible" %>
 		<div class="alert alert-warning"> <p><%= notice %> </p> </div>
+	<% elsif notice && notice== "Eliminacion con exito" %>
+		<div class="alert alert-success"> <p><%= notice %> </p> </div>
   	<% end %>
 </div>

@@ -33,12 +33,16 @@ def aceptarSolicitud  #falta enviar mail
 		end
 	end
 	if (redirect == true) #si no hay fecha disponible redirige
+		sol.eliminar=true
+		sol.save
+		SolicitudMailer.nohayfecha(sol.hospedaje, sol.usuario).deliver
 		redirect_to solicituds_path, notice: "No hay fecha disponible"
 	else
 		sol.aceptada=true  #si hay fecha disponible se acepta y se eliminan todas las otras solicitudes dentro de esa fecha
 		sol.save
 		Solicitud.where(hospedaje_id: sol.hospedaje_id, aceptada: false).each do |solicitud|
 			if((solicitud.fechainic >= sol.fechainic &&  solicitud.fechainic <= sol.fechafin) || (solicitud.fechafin <= sol.fechafin && solicitud.fechafin >= sol.fechainic))
+				SolicitudMailer.noaceptada(solicitud.hospedaje, solicitud.usuario).deliver
 				solicitud.destroy
 			end
 		end
@@ -72,6 +76,12 @@ end
 
 def new
 	@solicitud=Solicitud.new(hospedaje_id: params[:hospedaje_id])
+end
+
+def destroy
+	@sol=Solicitud.find(params[:id])
+	@sol.destroy
+    redirect_to solicituds_path, notice: "Eliminacion con exito"
 end
 
 end
