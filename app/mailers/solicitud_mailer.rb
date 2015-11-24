@@ -1,5 +1,5 @@
 class SolicitudMailer < ActionMailer::Base
-  default from: "Couchin-BlueScreen@gmail.com"
+  default from: "eduardomaxit5@gmail.com"
 
   def solicitante_email(propietario, solicitante)
     @propietario = propietario
