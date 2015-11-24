@@ -8,7 +8,7 @@
 
 
 puts "Hospedaje 1"
-Hospedaje.find_or_create_by(titulo: "Gran Mansion", encabezado: "Situada en pleno centro de Merlo", descripcion: "Cuenta 7 habitaciones completamente amobladas con cable y baño cada una, gran cocina, comedor y un quincho de 300 metros cuadradros. Se encuentra ne pleno centro por lo que la movilidad no es un problema", provincia: "San Luis" , ciudad: "Merlo",  capacidad: "17" , usuario_id: 1 , tipo_id: 1 , puntajePromedio: 8 , ocupado: false , fechainic: '25/08/2016', fechafin: '25/08/2017')
+Hospedaje.find_or_create_by(titulo: "Gran Mansion", encabezado: "Situada en pleno centro de Merlo", descripcion: "Cuenta 7 habitaciones completamente amobladas con cable y baño cada una, gran cocina, comedor y un quincho de 300 metros cuadradros. Se encuentra ne pleno centro por lo que la movilidad no es un problema", provincia: "San Luis" , ciudad: "Merlo",  capacidad: "17" , usuario_id: 1 , tipo_id: 1 , puntajePromedio: 8 , ocupado: false , fechainic: '2016/08/25', fechafin: '2017/08/25')
 
 Foto.find_or_create_by(link: "https://i.ytimg.com/vi/x7UflKOhhe4/maxresdefault.jpg", hospedaje_id: 1 )
 Foto.find_or_create_by(link: "http://ciudad.cdncmd.com/sites/default/files/styles/ciu_nota_slider_contenido_hd/public/files_drupal_6/2013/10/02/CasaMessiLuisdeGarrido-4.jpg?itok=JO1yeb99", hospedaje_id: 1 )
