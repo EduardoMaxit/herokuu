@@ -17,6 +17,7 @@ def validar
 		usuarioActual=Usuario.find(current_usuario.id)
 		usuarioActual.espremium="true"
 		usuarioActual.save
+	    redirect_to hospedajes_path
 	end
 end
 
