@@ -12,7 +12,7 @@ def validarFecha
 		params[:solicitud][:fechainic].to_date > Hospedaje.find(params[:solicitud][:hospedaje_id]).fechafin ||
 		params[:solicitud][:fechafin].to_date < Hospedaje.find(params[:solicitud][:hospedaje_id]).fechainic ||
 		params[:solicitud][:fechafin].to_date > Hospedaje.find(params[:solicitud][:hospedaje_id]).fechafin ||
-		params[:solicitud][:fechainic].to_date < params[:solicitud][:fechainic].to_date)	
+		params[:solicitud][:fechafin].to_date < params[:solicitud][:fechainic].to_date)	
 		redirect_to new_solicitud_path(:hospedaje_id => (params[:solicitud][:hospedaje_id])), notice: "Fechas invalidas"
 	end
 end

@@ -33,13 +33,13 @@
         
         <div class="campohospedaje">
           <%= f.label :titulo %><br />
-          <%= f.text_field :titulo,required:true,title:"Campo obligatorio",value: @h.titulo,class:'form-control'%>
+          <%= f.text_field :titulo,required:true,:maxlength => 60,title:"Campo obligatorio",value: @h.titulo,class:'form-control'%>
         </div>
 
 
         <div class="campohospedaje">
           <%= f.label :encabezado %><br />
-          <%= f.text_field :encabezado,required:true,title:"Campo obligatorio",value: @h.encabezado,class:'form-control'%>
+          <%= f.text_field :encabezado,required:true,:maxlength => 100,title:"Campo obligatorio",value: @h.encabezado,class:'form-control'%>
         </div>
 
 
