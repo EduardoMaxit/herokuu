@@ -42,9 +42,10 @@
           <%= f.text_area :descripcion,required:true,title:"Campo obligatorio",value: @h.descripcion,class:'form-control', rows:3%>
         </div>
 
-        <div class="campohospedaje">
-          <%= f.label :provincia %><br />
-          <%= f.text_field :provincia,required:true,title:"Campo invalido",value: @h.provincia,class:'form-control'%>
+     <div class="campohospedaje">
+          <%= f.label :Provincia, 'Provincia'%><br>
+          <%= f.select(:provincia, ['Buenos Aires', 'Catamarca', 'Chaco', 'Chubut', 'Cordoba', 'Corrientes', 'Entre Rios', 'Formosa','Jujuy','La Pampa', 'La Rioja', 'Mendoza','Misiones','Neuquen','Rio Negro', 'Salta', 'San Juan', 'San Luis', 'Santa Cruz', 'Santa Fe','Santiago Del Estero','Tierra del Fuego','Tucuman'], {}, { :class => 'form-control' }) %>
+
         </div>
 
         <div class="campohospedaje">
@@ -74,6 +75,8 @@
 
         </div>
 
+
+        </div>
         <%=f.hidden_field :puntajePromedio,value: -1%>
          
         <center><%= f.submit "Crear hospedaje",class: "btn btn-success btn-lg"  %>
