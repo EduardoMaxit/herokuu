@@ -1,15 +1,15 @@
 class SolicitudMailer < ActionMailer::Base
-  default from: "eduardomaxit5@gmail.com"
+  default from: "Couchin-BlueScreen@gmail.com"
 
-  def solicitante_email(origen, destino)
-    @origen = origen
-   	@destino= destino   		
-    mail(to: @origen.email, subject: 'Datos del propietario')
+  def solicitante_email(propietario, solicitante)
+    @propietario = propietario
+   	@solicitante = solicitante   		
+    mail(to: @solicitante.email, subject: 'Datos del propietario')
   end
  
   def propietario_email(origen, destino)
-    @origen = origen
-   	@destino= destino   		
-    mail(to: @destino.email, subject: 'Datos del solicitante')
+    @propietario = propietario
+    @solicitante = solicitante    		
+    mail(to: @propietario.email, subject: 'Datos del solicitante')
   end
 end

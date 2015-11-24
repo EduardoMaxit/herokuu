@@ -20,7 +20,7 @@ end
 def validarUsuario  #valida que el usuario no se autoenvie una solicitud
 	@hospe=Hospedaje.find(params[:hospedaje_id])
 	if(@hospe.usuario_id==current_usuario.id)
-		redirect_to hospedajes_path
+		redirect_to :back
 	end
 end
 
@@ -42,8 +42,8 @@ def aceptarSolicitud  #falta enviar mail
 				solicitud.destroy
 			end
 		end
-		SolicitudMailer.solicitante_email(current_usuario, sol.hospedaje.usuario)
-		SolicitudMailer.propietario_email(current_usuario, sol.hospedaje.usuario)
+		SolicitudMailer.solicitante_email(current_usuario, sol.usuario).deliver
+		SolicitudMailer.propietario_email(current_usuario, sol.usuario).deliver
 		redirect_to solicituds_path, notice: "Solicitud aceptada"
 	end
 end

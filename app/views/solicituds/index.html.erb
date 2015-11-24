@@ -6,20 +6,28 @@
 			<th width="100"> Hospedaje </th>
 			<th width="100"> Fecha de inicio </th>
 			<th width="100"> Fecha de fin </th>
+			<th width="100"> ¿Aceptada? </th>
 			<th width="70"> </th>
 		</tr>
 	</table>
 	<% total=0 %>
 	<% if @hospe.count > 0 %> 
 		<% @hospe.each do |hospedaje| %>
-			<% hospedaje.solicituds.where(aceptada: false).each do |solicitud| %>	
+			<% hospedaje.solicituds.each do |solicitud| %>	
 				<table class="table">
 					<tr>
 						<td width="100"> <%= solicitud.usuario.nombre + " " + solicitud.usuario.apellido %> </td>
 						<td width="100"> <%= solicitud.hospedaje.titulo %> </td>
 						<td width="100"> <%= solicitud.fechainic %> </td>
 						<td width="100"> <%= solicitud.fechafin %> </td>
-						<td width="70"> <%= link_to "Aceptar", solicituds_aceptarSolicitud_path(:id => solicitud.id), class: 'btn btn-success btn-xs' %> </td>
+						<% if solicitud.aceptada %>
+							<td width="100"> SI </td>
+							<td width="70"> </td>
+						<% else %>
+							<td width="100"> NO </td>
+							<td width="70"> <%= link_to "Aceptar", solicituds_aceptarSolicitud_path(:id => solicitud.id), class: 'btn btn-success btn-xs' %> </td>
+						<% end %>
+						
 					</tr>
 					<% total = 1 %>
 				</table>
