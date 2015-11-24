@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  Your::Application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   get 'fotos/new'
 
   get 'fotos/create'
