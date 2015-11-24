@@ -80,12 +80,12 @@
   
         <div class="camporegistro_telefono_izq">
           <%= f.label :"Caracteristica- " %>
-           <%= f.number_field :tel_caract,title:"El campo no debe estar vacio y puede tener como maximo 8 digitos",max:"99999999",min:"0", class:'form-control' %>
+           <%= f.number_field :tel_caract,title:"El campo no debe estar vacio y puede tener como maximo 8 digitos",max:"99999999",min:"0",required:true, class:'form-control' %>
         </div>
 
         <div class="camporegistro_telefono_der">
           <%= f.label :"Telefono" %>
-          <%= f.number_field :tel_num,max:"999999999999999",min:"0",required:true,title:"Campo obligatorio", title:"El numero puede contener como maximo 15 digitos", class:'form-control' %>
+          <%= f.number_field :tel_num,max:"999999999999999",min:"0",required:true, title:"El numero no puede estar vacio y puede contener como maximo 15 digitos", class:'form-control' %>
         </div>
 
         <div class="campoedicion">
@@ -117,11 +117,15 @@
 
 
         <% resource.errors.each do |atributo, mensaje| %>
-         <%if mensaje=="is invalid" then%>
+         <%if mensaje=="is invalid" then %>
           <div class="alert alert-danger">
             Contraseña invalida
           </div>
-        <%end%>
+         <%else%>
+          <div class="alert alert-danger">
+            <%= mensaje %>
+          </div>
+         <%end%>
         <% end %>
 
 
