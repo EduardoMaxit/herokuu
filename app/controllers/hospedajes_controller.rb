@@ -59,28 +59,26 @@ def index
 							@hospe=@hospe.where("ciudad = :ciudad", ciudad: params[:ciudad] )	
 							
 			end
-			if (params[:fechaInic].present? || params[:fechaFin].present? )
-								if ( params[:fechaInic].present? && params[:fechaFin].present? && params[:fechaInic].to_date < params[:fechaFin].to_date && params[:fechaInic].to_date >= Date.today  ) 
-								@hospeAux=[]
-								@hospe.each do |hospedaje|
-									if params[:fechaInic].to_date > hospedaje.fechainic && params[:fechaFin].to_date < hospedaje.fechafin
-										@sirve=0
-										Solicitud.where(hospedaje_id: hospedaje.id, aceptada: true).each do |solicitud|
-											if ( !( params[:fechaInic].to_date <= solicitud.fechainic && params[:fechaFin].to_date <= solicitud.fechainic ) || !( params[:fechaInic].to_date >= solicitud.fechaifin && params[:fechaFin].to_date >= solicitud.fechafin ) )
-												@sirve=1
-											end		
-										end	
-										if @sirve ==0
-											@hospeAux << hospedaje		
-										end		
-									end	
-								end	
-								@hospe=@hospeAux
-							else
-								flash.now[:notice]= 'Por favor, complete correctamente las fechas de solicitud'
-							    render :busquedaAvanzada
-							end    
-			end	
+			if ( params[:fechaInic].present? && params[:fechaFin].present? && params[:fechaInic].to_date < params[:fechaFin].to_date && params[:fechaInic].to_date >= Date.today  ) 
+				@hospeAux=[]
+				@hospe.each do |hospedaje|
+					if (params[:fechaInic].to_date >= hospedaje.fechainic  && params[:fechaFin].to_date <= hospedaje.fechafin)
+						@sirve=0
+						Solicitud.where(hospedaje_id: hospedaje.id, aceptada: true).each do |solicitud|
+							if ( ( params[:fechaInic].to_date >= solicitud.fechainic && params[:fechaInic].to_date <= solicitud.fechafin ) || ( params[:fechaFin].to_date >= solicitud.fechainic && params[:fechaFin].to_date <= solicitud.fechafin ) )
+								@sirve=1
+							end		
+						end	
+						if @sirve == 0
+							@hospeAux << hospedaje		
+						end		
+					end	
+				end	
+				@hospe=@hospeAux
+			else
+				flash.now[:notice]= 'Por favor, complete correctamente las fechas de solicitud'
+				render :busquedaAvanzada
+			end 	
 			if (params[:capMin].present? || params[:capMax].present? )
 							if (params[:capMin].present? && params[:capMax].present? && params[:capMax] >= params[:capMin] && params[:capMin] >= "0" && params[:capMax] >= "1" )
 								@hospeAux=[]
