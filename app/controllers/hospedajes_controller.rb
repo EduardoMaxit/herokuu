@@ -31,7 +31,7 @@ def update
 	@h=Hospedaje.find(params[:id])
 	@h.update_attributes(params.require(:hospedaje).permit(:fechainic, :fechafin, :titulo,:encabezado,:descripcion,:provincia,:capacidad,:ciudad))
 	if @h.save
-	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Cambios realizados con exito"
+	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Hospedaje actualizado con exito"
 	else 
 	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "La fecha de fin no puede ser anterior a la fecha de inicio"
 	end
