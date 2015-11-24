@@ -29,17 +29,12 @@ end
 
 def update
 	@h=Hospedaje.find(params[:id])
-  if(!@h.ocupado)
 	@h.update_attributes(params.require(:hospedaje).permit(:fechainic, :fechafin, :titulo,:encabezado,:descripcion,:provincia,:capacidad,:ciudad))
 	if @h.save
 	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "Hospedaje actualizado con exito"
 	else 
 	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "La fecha de fin no puede ser anterior a la fecha de inicio"
 	end
-  else 
-  	 redirect_to hospedajes_edit_path(:id=> params[:id]), notice: "El Hospedaje esta ocupado, no se puede actualizar en este momento"
-   end
-
 end
 
 
@@ -70,7 +65,7 @@ def index
 					if (params[:fechaInic].to_date >= hospedaje.fechainic  && params[:fechaFin].to_date <= hospedaje.fechafin)
 						@sirve=0
 						Solicitud.where(hospedaje_id: hospedaje.id, aceptada: true).each do |solicitud|
-							if ( ( params[:fechaInic].to_date >= solicitud.fechainic && params[:fechaInic].to_date <= solicitud.fechafin ) || ( params[:fechaFin].to_date >= solicitud.fechainic && params[:fechaFin].to_date <= solicitud.fechafin ) )
+							if ( ( solicitud.fechainic >= params[:fechaInic].to_date && solicitud.fechainic <= params[:fechaFin].to_date ) || ( solicitud.fechafin >= params[:fechaInic].to_date && solicitud.fechafin <= params[:fechaFin].to_date ) )
 								@sirve=1
 							end		
 						end	

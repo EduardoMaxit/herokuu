@@ -15,7 +15,13 @@
           <%= notice %>
         </div>
        </div>
-      <%elsif notice=="Existe una foto igual asignada al hospedaje" ||  notice=="La fecha de fin no puede ser anterior a la fecha de inicio" || notice=="Cada hospedaje debe tener una foto como minimo" || notice=="El Hospedaje esta ocupado, no se puede actualizar en este momento"%>
+      <%elsif notice=="Existe una foto igual asignada al hospedaje" || notice=="Cada hospedaje debe tener una foto como minimo"%>
+        <div class="campohospedaje">
+         <div class="alert alert-warning">
+          <%= notice %>
+         </div>
+        </div>
+      <%elsif notice=="La fecha de fin no puede ser anterior a la fecha de inicio" %>
         <div class="campohospedaje">
          <div class="alert alert-warning">
           <%= notice %>
