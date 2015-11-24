@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  Your::Application.routes.draw do
+  "https://whispering-atoll-1202.herokuapp.com/".routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
