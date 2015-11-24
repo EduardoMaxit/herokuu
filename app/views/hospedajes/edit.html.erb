@@ -86,7 +86,7 @@
     <center>
     <input type="button", class="btn btn-success", value="Editar Fotos" 
      onClick="document.getElementById('oculto').style.display='block'"> 
-     <%= link_to "Volver", hospedajes_path, class: 'btn btn-warning' %>
+     <%= link_to "Volver", hospedajes_misHospedajes_path(:id => current_usuario.id), class: 'btn btn-warning' %>
     </center>
     </div>
     <div id="oculto" style="display: none"> 
