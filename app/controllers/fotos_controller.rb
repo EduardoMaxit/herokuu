@@ -38,7 +38,7 @@ end
     if(Foto.where(hospedaje_id: params[:idh]).count>1) then
       @foto=Foto.find(params[:id])
       @foto.destroy
-      redirect_to hospedajes_edit_path(:id=> params[:idh]), notice: "Cambios realizados con exito"
+      redirect_to hospedajes_edit_path(:id=> params[:idh]), notice: "Hospedaje actualizado con exito"
     else
       redirect_to hospedajes_edit_path(:id=> params[:idh]), notice: "Cada hospedaje debe tener una foto como minimo"
     end
