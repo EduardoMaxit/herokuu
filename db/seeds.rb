@@ -28,7 +28,7 @@ Respuesta.find_or_create_by(texto: "Bueno, gracias por la informacion", comentar
 
 puts "hospedaje 2"
 
-Hospedaje.find_or_create_by(titulo: "Cabaña los kaukenes", encabezado: "Cabaña para descansar", descripcion: "Cabaña situada a 4kms  del centro, no hay señal de tv , de radio ni movil. Consta de 2 habitaciones, cocina-comedor y baño con jacuzzi", provincia: "Entre Rios" , ciudad: "Concordia",  capacidad: "2" , usuario_id: 2 , tipo_id: 2  , puntajePromedio: 3 , ocupado: false , fechainic: '03/08/2016', fechafin: '25/08/2016')
+Hospedaje.find_or_create_by(titulo: "Cabaña los kaukenes", encabezado: "Cabaña para descansar", descripcion: "Cabaña situada a 4kms  del centro, no hay señal de tv , de radio ni movil. Consta de 2 habitaciones, cocina-comedor y baño con jacuzzi", provincia: "Entre Rios" , ciudad: "Concordia",  capacidad: "2" , usuario_id: 2 , tipo_id: 2  , puntajePromedio: 3 , ocupado: false , fechainic: '2016/08/03', fechafin: '2016/08/25')
 
 Foto.find_or_create_by(link: "http://www.patagonia.com.ar/media/usuarios/fotos/normal_Rio_Grande_B.jpg", hospedaje_id: 2 )
 Foto.find_or_create_by(link: "http://www.tigretienetodo.com.ar/cabanas%20colibri%206%20FOTOS.jpg", hospedaje_id: 2 )
@@ -47,14 +47,14 @@ Respuesta.find_or_create_by(texto: "Depende de la fecha en la que quieras venir,
 
 puts "hospedaje 3"
 
-Hospedaje.find_or_create_by(titulo: "Departemento para disfrutar con la familia", encabezado: "Departamento en pleno centro", descripcion: "Es un departamento al cual no le falta nada, muy comodo para una familia de 4/5 que tenga ganas de disfrutar de los espectaculos que brinda la ciudad de Buenaos Aires  ", provincia: "Buenos Aires" , ciudad: "Ciudad Autonoma de Bsas",  capacidad: "5" , usuario_id: 1 , tipo_id: 3 , puntajePromedio: 6 , ocupado: false , fechainic: '25/08/2016', fechafin: '25/08/2017')
+Hospedaje.find_or_create_by(titulo: "Departemento para disfrutar con la familia", encabezado: "Departamento en pleno centro", descripcion: "Es un departamento al cual no le falta nada, muy comodo para una familia de 4/5 que tenga ganas de disfrutar de los espectaculos que brinda la ciudad de Buenaos Aires  ", provincia: "Buenos Aires" , ciudad: "Ciudad Autonoma de Bsas",  capacidad: "5" , usuario_id: 1 , tipo_id: 3 , puntajePromedio: 6 , ocupado: false , fechainic: '2016/08/25', fechafin: '2017/08/25')
 
 Foto.find_or_create_by(link: "http://imgar.zp-static.com/675968ff-4a55-490e-bf59-b17a674f6c60?dimension=340x255", hospedaje_id: 3 )
 Foto.find_or_create_by(link: "http://imganuncios.mitula.net/nueva_a_estrenar_en_palermo_queen_en_alquiler_de_temporada_98130643007707872.jpg", hospedaje_id: 3 )
 
 puts "hospedaje 4"
 
-Hospedaje.find_or_create_by(titulo: "Pieza para disfrutar de la ciudad mas austral del mundo", encabezado: "Pieza amplia con baño privado", descripcion: "Se compartira la casa con sus dueños, dicha casa se encuentra a 5 km del centro invernal Cerro Castor", provincia: "Tierra del Fuego" , ciudad: "Ushuaia",  capacidad: "2", usuario_id: 2 , tipo_id: 4 , puntajePromedio: 8 , ocupado: false , fechainic: '25/08/2018', fechafin: '25/08/2019' )
+Hospedaje.find_or_create_by(titulo: "Pieza para disfrutar de la ciudad mas austral del mundo", encabezado: "Pieza amplia con baño privado", descripcion: "Se compartira la casa con sus dueños, dicha casa se encuentra a 5 km del centro invernal Cerro Castor", provincia: "Tierra del Fuego" , ciudad: "Ushuaia",  capacidad: "2", usuario_id: 2 , tipo_id: 4 , puntajePromedio: 8 , ocupado: false , fechainic: '2018/08/25', fechafin: '2019/08/25' )
 
 Foto.find_or_create_by(link: "https://media-cdn.tripadvisor.com/media/photo-s/01/50/65/4c/la-habitacion-amplia.jpg", hospedaje_id: 4 )
 Foto.find_or_create_by(link: "http://www.comodoro.gov.ar/efemerides/wp-content/uploads/2012/08/ushuaia1.gif", hospedaje_id: 4 )
