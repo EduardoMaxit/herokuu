@@ -81,6 +81,6 @@
 		<% end %>
 	<br/>
 	<CENTER> <%= link_to "Solicitar Hospedaje", new_solicitud_path(:hospedaje_id => @hospe.id), class: 'btn btn-success btn-lg' %>
-	<%= link_to "Volver", hospedajes_path, class: 'btn btn-warning btn-lg' %> </CENTER>
+	<%= link_to "Volver", :back, class: 'btn btn-warning btn-lg' %> </CENTER>
 	<br/>
 </div>
