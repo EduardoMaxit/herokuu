@@ -24,6 +24,9 @@ end
 def edit
 	@h=Hospedaje.find(params[:id])
 	@fotos=Foto.where(hospedaje_id: params[:id])
+	if(@h.ocupado)
+		redirect_to hospedajes_misHospedajes_path(:id => current_usuario.id), notice: "El hospedaje esta ocupado, no se puede editar"
+	end
 
 end
 
