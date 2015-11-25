@@ -56,7 +56,7 @@
 
         <div class="campohospedaje">
           <%= f.label :ciudad %><br />
-          <%= f.text_field :ciudad,required:true,required:true,title:"Campo invalido",value: @h.ciudad,class:'form-control'%>
+          <%= f.text_field :ciudad,required:true,pattern:"[A-Za-z ]{0,20}",title:"Campo invalido",value: @h.ciudad,class:'form-control'%>
         </div>
 
         <div class="campohospedaje">
