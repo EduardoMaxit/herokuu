@@ -199,7 +199,7 @@ def validarPuntaje
 	end	
 	@hospedaje.puntajePromedio= tot / @hospedaje.puntajes.count
 	@hospedaje.save
-	redirect_to hospedaje_path(@hospedaje)
+	redirect_to hospedaje_path(@hospedaje) , notice: "Felicitaciones, ya puntuò este hospedaje"
 	
 
 
